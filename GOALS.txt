@@ -1,0 +1,47 @@
+21 feb 2021 GOALS
+-Produce two vids
+   -Topic ==>Installing python 3.8.5 and setting environmenet variables in windows 10
+   -Topic ==>Installing mysql 8, sql basics
+   -Topic ==>Django with mysql 1
+
+
+1 Finish a django book(a complex one)
+2 finish a javascript book a complex one
+3 finish  css book a compex one
+4 python OOP 
+5 flutter + dart
+6 Produce videos
+
+
+START WITH
+4, 1, 2, 3 and so on
+DECIDE WHICH BOOKS TO DO
+
+QUESTON-does lathering facewash too much on your hands before aplying makes it weak and less effective
+
+LEARN SKILSS TO MEET THE FOLLOWING JOB REQUIREMENTS
+Job Role
+Senior Python/Django developer
+
+Job Details
+🇳🇱 Netherlands
+Remote: Yes
+Type: Permanent
+Experience Level: Senior
+Technologies: Go, gRPC, RocksDB, Python, Postgresql, RabbitMQ AWS, Puppet, CloudFormation, Grafana, Graphite, ELK, Jaeger, Redis, Memcached
+Company: Stream
+
+Job Description & Requirements
+We are one of the fastest-growing startups in Europe. Our company provides APIs for building activity feeds and chat. Our team is passionate about tackling difficult tech problems at scale and creating reusable components for them. 
+
+At Stream we use Python and Django next to our Go APIs. You will work on features such as our moderation dashboard, Chat and Feeds admin panel, internal tools as well as with the integration of external services.
+As a developer at Stream, you will build software that's used by tens of thousands of developers and more than half a billion end-users. 
+
+You have
+Proficiency in Python and Django
+Strong knowledge of Django Rest Framework
+Frontend experience with Vue or React.JS
+Good knowledge of Service Fabric Backend
+Experience with AWS services
+Experience with PostgreSQL
+ AWS, Docker

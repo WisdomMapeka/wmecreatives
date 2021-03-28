@@ -1,0 +1,14 @@
+Vanilla js
+-building a carosal, simple, complex, intermideate carosals
+-creating html with javascript
+
+
+CSS
+-Building Horizontal menus
+
+DJANGO
+-django static files
+
+PROJECTS
+-Building a simple django website   Beginner projects Full
+-Building a Complex website with django advanced

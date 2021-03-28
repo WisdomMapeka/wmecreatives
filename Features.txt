@@ -1,0 +1,11 @@
+SECTIONS
+-Blog
+INSPIRATION
+-https://www.shoutmeloud.com/ For article detail page and identification and homepage
+-https://blog.logrocket.com/ For 
+https://www.algotech.solutions/blog/python/django-migrations-and-how-to-manage-conflicts/
+
+
+REDESIGN IT USING THE FOLLOWING APPROACH
+
+https://simpleisbetterthancomplex.com/
