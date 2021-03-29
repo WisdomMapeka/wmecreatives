@@ -15,8 +15,10 @@
 	display: flex;
 	align-content: space-around;
 	flex-wrap: wrap;
-	margin-right: 100px;
-	margin-left: 100px;
+	padding-right: 100px;
+	padding-left: 100px;
+	padding-bottom: 20px;
+	background-color: rgb(245,245,245);
 }
 .article-details-author-date-container .author-container-img{
 	background-color: grey;
@@ -25,6 +27,7 @@
 	margin-top: 75px;
 	border-radius: 150px;
 	overflow: hidden;
+	border: solid 1px #282222;
 }
 .article-details-author-date-container .author-container-img img{
 	width: 100%;
@@ -47,17 +50,23 @@
    opacity: 0.9;
 }
 
+.article-details-follow-midea-cons-container,
+.col-0{
+	display: none;
+}
 .article-details-follow-midea-cons{
 	top: 150px;
 	padding-left: 30px;
 	margin-top: 30px;
 	padding-top: 30px;
 	font-size: 20px;
+	/*display: none;*/
 }
 .article-details-follow-midea-cons-non-fixed{
 	position: fixed;
 	top: 150px;
 	padding-left: 30px;
+	/*display: none;*/
 }
 
 .aricle-details-topic-meta-tags span{
@@ -80,4 +89,36 @@
 	padding-bottom: 30px;
 	padding-left: 30px;
 	padding-right: 30px;*/
+	/*width: 100%;*/
 }
+.hide-article-on-device-small{
+	display: none;
+}
+.article-details-related-articles >div{
+   max-width: 250px;
+   margin-left: 10px;
+   border: solid 1px rgb(150,150,150);
+   padding: 0px;
+}
+.article-details-related-articles >div img{
+   max-width: 100%;
+}
+.row>div{
+	/*background-color: blue;*/
+	margin:auto;
+}
+
+
+@media screen and (min-width: 770px) {
+    .hide-article-on-device-small{
+	display: block;
+   }
+}
+
+@media screen and (min-width: 1165px) {
+    .article-details-follow-midea-cons-container,
+    .col-0{
+	display: block;
+   }
+}
+
