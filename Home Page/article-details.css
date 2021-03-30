@@ -1,113 +1,93 @@
-.article-details-topic-container{
+.article-details-content-container{
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+	background-color: white;
+	margin-top: 40px;
+	/*margin-top: 30px;*/
+	padding-top: 50px;
+	padding-bottom: 50px;
+/*	padding-right: 50px;
+	padding-left: 50px;*/
+}
+.article-details-content-container>div{
+	padding-right: 30px;
+	padding-left: 30px;
+}
+.article-details-topic{
 	background-color: #282222;
-	height: 150px;
 	color: white;
-	display: flex;
-	align-items: center;
+	text-align: center;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	/*height: 50px;*/
+}
+.main-topic-details-social-icons-container{
+	/*background-color: rgb(200,200,200);*/
+	/*color: white;*/
+
+}
+.article-details-topic-container{
+/*	background-color: black;*/
+	width: 600px;
+	margin-top: 30px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-right: 30px;
+	padding-left: 30px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
-.article-details-topic-container h1{
-	margin-right: 100px;
-	margin-left: 100px;
-	/*background-color: blue;*/
-}
-.article-details-author-date-container{
-	display: flex;
-	align-content: space-around;
-	flex-wrap: wrap;
-	padding-right: 100px;
-	padding-left: 100px;
-	padding-bottom: 20px;
-	background-color: rgb(245,245,245);
-}
-.article-details-author-date-container .author-container-img{
-	background-color: grey;
-	height: 150px;
-	width: 150px;
-	margin-top: 75px;
-	border-radius: 150px;
+.article-details-author-container-img{
+	/*background-color: grey;*/
+	height: 100px;
+	width: 100px;
+	/*margin-top: 75px;*/
+	border-radius: 100px;
 	overflow: hidden;
+	/*border: solid 1px #282222;*/
+}
+.article-details-author-container-img img{
+	height: 100px;
+	width: 100px;
+	border-radius: 100px;
 	border: solid 1px #282222;
 }
-.article-details-author-date-container .author-container-img img{
-	width: 100%;
-	height: 100%;
-}
-.article-details-author-date-container .date-container{
-  margin-bottom: 0px;
-  margin-top: 105px;
-}
-.article-details-author-date-container .date-container span{
-	display: inline-block;
-	margin-left: 40px;
-	padding-left: 50px;
-	padding-right: 50px;
-	margin-top: 20px;
-	margin-right: 40px;
-   /*color: white;*/
-   color: rgba(10,10,10);
-   background-color: rgb(220,220,220);
-   opacity: 0.9;
-}
 
-.article-details-follow-midea-cons-container,
-.col-0{
-	display: none;
-}
-.article-details-follow-midea-cons{
-	top: 150px;
-	padding-left: 30px;
+/*.aricle-details-topic-meta-tags{
 	margin-top: 30px;
-	padding-top: 30px;
-	font-size: 20px;
-	/*display: none;*/
-}
-.article-details-follow-midea-cons-non-fixed{
-	position: fixed;
-	top: 150px;
-	padding-left: 30px;
-	/*display: none;*/
-}
-
+}*/
 .aricle-details-topic-meta-tags span{
   font-style: italic;
    color: brown;
    /*background-color: brown;*/
    border: solid 1px brown;
-   display: inline-block;
-   margin:auto;
+   /*display: inline-block;*/
+   /*margin:auto;*/
    margin-bottom: 10px;
    margin-top: 10px;
+   margin-right: 10px;
    padding-right: 40px;
    padding-left: 40px;
+   text-align: center;
    cursor: pointer;
 }
 
-.article-details-actual-content-container{
-	/*box-shadow: 100px 40px 40px rgb(200,200,200);*/
-/*	padding-top: 30px;
-	padding-bottom: 30px;
-	padding-left: 30px;
-	padding-right: 30px;*/
-	/*width: 100%;*/
-}
-.hide-article-on-device-small{
-	display: none;
-}
+
 .article-details-related-articles >div{
    max-width: 250px;
-   margin-left: 10px;
+   margin-left: 2rem;
    border: solid 1px rgb(150,150,150);
    padding: 0px;
+   margin-top: 20px;
+   /*box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;*/
 }
 .article-details-related-articles >div img{
    max-width: 100%;
 }
-.row>div{
-	/*background-color: blue;*/
-	margin:auto;
-}
 
+.hide-article-on-device-small{
+	display: none;
+}
 
 @media screen and (min-width: 770px) {
     .hide-article-on-device-small{
@@ -115,10 +95,5 @@
    }
 }
 
-@media screen and (min-width: 1165px) {
-    .article-details-follow-midea-cons-container,
-    .col-0{
-	display: block;
-   }
-}
-
+0719884599
+seke unit F
