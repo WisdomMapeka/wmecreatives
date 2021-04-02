@@ -1,0 +1,99 @@
+.article-details-content-container{
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+	background-color: white;
+	margin-top: 40px;
+	/*margin-top: 30px;*/
+	padding-top: 50px;
+	padding-bottom: 50px;
+/*	padding-right: 50px;
+	padding-left: 50px;*/
+}
+.article-details-content-container>div{
+	padding-right: 30px;
+	padding-left: 30px;
+}
+.article-details-topic{
+	background-color: #282222;
+	color: white;
+	text-align: center;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	/*height: 50px;*/
+}
+.main-topic-details-social-icons-container{
+	/*background-color: rgb(200,200,200);*/
+	/*color: white;*/
+
+}
+.article-details-topic-container{
+/*	background-color: black;*/
+	width: 600px;
+	margin-top: 30px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-right: 30px;
+	padding-left: 30px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.article-details-author-container-img{
+	/*background-color: grey;*/
+	height: 100px;
+	width: 100px;
+	/*margin-top: 75px;*/
+	border-radius: 100px;
+	overflow: hidden;
+	/*border: solid 1px #282222;*/
+}
+.article-details-author-container-img img{
+	height: 100px;
+	width: 100px;
+	border-radius: 100px;
+	border: solid 1px #282222;
+}
+
+/*.aricle-details-topic-meta-tags{
+	margin-top: 30px;
+}*/
+.aricle-details-topic-meta-tags span{
+  font-style: italic;
+   color: brown;
+   /*background-color: brown;*/
+   border: solid 1px brown;
+   /*display: inline-block;*/
+   /*margin:auto;*/
+   margin-bottom: 10px;
+   margin-top: 10px;
+   margin-right: 10px;
+   padding-right: 40px;
+   padding-left: 40px;
+   text-align: center;
+   cursor: pointer;
+}
+
+
+.article-details-related-articles >div{
+   max-width: 250px;
+   margin-left: 2rem;
+   border: solid 1px rgb(150,150,150);
+   padding: 0px;
+   margin-top: 20px;
+   /*box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;*/
+}
+.article-details-related-articles >div img{
+   max-width: 100%;
+}
+
+.hide-article-on-device-small{
+	display: none;
+}
+
+@media screen and (min-width: 770px) {
+    .hide-article-on-device-small{
+	display: block;
+   }
+}
+
+0719884599
+seke unit F

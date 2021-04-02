@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/article-details.css' %}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1f77c9f2d9.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body style="background-color: #eeee;" onscroll="hide_follow_icons_scroll()"  onresize="removeDropdownHidingClass()">
+	<div class="top-about-contact-div">
+		<span>about&nbsp;<i class="fas fa-question-circle"></i></span>
+		<span>Contacts&nbsp;<i class="fas fa-id-card"></i></span>
+		<span>Send Message&nbsp;<i class="fas fa-sms"></i></span>
+		<span>Projects&nbsp; <i class="fab fa-github"></i></span>
+	</div>
+	<header>
+		<div class="menu-container">
+			
+			<ul style="color: white;">
+				<li class="logo"><a href="{% url 'index' %}">&nbsp; wme<span style="color: brown;">C</span>reatives</a></li>
+				{% with tag="html" %} 
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #FD7E14;" class="fab fa-html5"></i>&nbsp;Html + <i style="color: #82C91E;" class="fab fa-css3"></i>&nbsp;Css</a></li>
+				{% endwith %}
+
+                {% with tag="django" %} 
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #FFD442;" class="fab fa-python"></i>&nbsp; Django</a></li>
+				{% endwith %}
+
+                {% with tag="python" %}
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #3471A1;" class="fab fa-python"></i>&nbsp; Python</a></li>
+				{% endwith %}
+
+                {% with tag="javascript" %}
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #EFD81D;" class="fab fa-js"></i> &nbsp; Javascript</a></li>
+				{% endwith %}
+
+				<li onclick="myFunction()" class="menu-dropdown-button" style="background-color: brown;"><a href="#">
+					<img  style="width: 30px;" src="menu-icon.svg">
+				</a></li>
+			</ul>
+		</div>
+
+		<div style="background-color: rgb(200,200,200);" id="menu-container-dropdown-id" class="menu-container-dropdown">
+			<ul>
+				{% with tag="html" %}
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #FD7E14;" class="fab fa-html5"></i>&nbsp;  Html + <i style="color: #82C91E;" class="fab fa-css3"></i>&nbsp; Css</a></li>
+				{% endwith %}
+
+				{% with tag="django" %} 
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #FFD442;" class="fab fa-python"></i>&nbsp; Django</a></li>
+				{% endwith %}
+
+				{% with tag="python" %}
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #3471A1;" class="fab fa-python"></i> &nbsp; Python</a></li>
+				{% endwith %}
+
+				{% with tag="javascript" %}
+				<li><a href="{% url 'article_list' tag %}"><i style="color: #EFD81D;" class="fab fa-js"></i>&nbsp; Javascript</a></li>
+				{% endwith %}
+
+			</ul>
+		</div>
+	</header>

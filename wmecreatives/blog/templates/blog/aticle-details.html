@@ -1,0 +1,150 @@
+{% include './template-parts/navbar.html' %}
+	
+	<!-- ================main content section================================= -->
+  <section class="main-topic-details-social-icons-container">
+	<div class="article-details-topic display-6">
+    	<strong>{{article.title}}</strong>
+    </div>
+
+
+    <div style="max-width: 980px;" class="container article-details-topic-container">
+      <div class="row"><!-- main role start -->
+        <div class="col col-sm-5 col-md-4 col-lg-3">
+          <div class="row">
+            <div class="col article-details-author-container-img">
+             {% if article.author.image %}
+              <img src="{{article.author.image.url}}">
+             {% endif %}
+            </div>
+            <div class="col">
+            	<br>
+            	<span><strong>by {{article.author.name}}</strong></span><br>
+            	<span>{{article.date}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-sm-3 col-md-3">
+          <br>
+          <div>follow</div>
+          <div class="row">
+            <span class="col"><i class="fab fa-youtube"></i></span>
+            <span class="col"><i class="fab fa-twitter"></i></span>
+            <span class="col"><i class="fab fa-facebook"></i></span>
+          </div>
+        </div>
+      </div><!-- main role end -->
+    </div>
+  </section>
+
+
+
+  <section>
+  	<!-- content start  -->
+  	<div style="max-width: 980px;" class="container article-details-content-container">
+  		
+	    <div >
+	    	<!-- blog article section start -->
+	    	{{article.content|safe}}
+	    	<!-- blog article end -->
+	    </div>
+	    <br>
+	    <br>
+	    <br>
+	    <hr style="border: solid 0.5px rgba(170,170,170);">
+
+	    <!-- article tages -->
+    	<div class="row aricle-details-topic-meta-tags">
+    		{% for tag in article.tag.all %}
+	       	   <span class="col">{{tag}}</span>
+	   	    {% endfor %}
+    	</div>
+	    <!-- ------article tags end----- -->
+
+        {% if related_articles %}
+	    <div><!-- related articles -->
+            <hr style="border: solid 0.5px rgba(170,170,170);">
+            <h3 class="display-6"><strong>Related Articles</strong></h3>
+                  <br>
+                  <br>
+            <div class="row article-details-related-articles"> 
+                 {% for article in related_articles %} 
+                 
+                  <div class="col">
+                  	  <a href="{% url 'article_details' article.slug %}">
+                  	   {% if article.lead_img %}
+                       <img src="{{article.lead_img.url}}">
+                       {% endif %}
+                       <div style="font-size: 1.4rem; padding: 20px;" class="display-6">
+                       	   {{article.title}}
+                       </div>
+                       <div style="padding: 20px;">{{article.date}}  by <strong>{{article.author.name}}</strong></div>
+                       </a> 
+                  </div>
+                  
+                  {% endfor %}
+                  <!-- <div class="col">
+                       <img src="pics/glacier-5584259_1920.jpg">
+                       <div style="font-size: 1.4rem; padding: 20px;" class="display-6">article article article article article</div>
+                       <div style="padding: 20px;">20 may 3030  by <strong>wiz</strong></div>
+                  </div>
+                  <div class="col hide-article-on-device-small">
+                       <img src="pics/glacier-5584259_1920.jpg">
+                       <div style="font-size: 1.4rem; padding: 20px;" class="display-6">article article article article article</div>
+                       <div style="padding: 20px;">20 may 3030  by <strong>wiz</strong></div>
+                  </div> -->
+            </div>  
+	    </div><!-- related articles end-->
+	    {% endif %}
+     		    
+  	</div>
+  	<!-- content end -->
+  	
+  </section>
+  <!-- ================main content section end=================================  -->
+
+<!-- subscribe button -->
+  <!-- <section>
+  	
+  	    <div style="max-width: 980px; background-color: white;" class="container">
+              <div  class="row  justify-content-centre subscribe-container">
+               <div class="col-12 col-lg-10">
+                    <hr style="border: solid 1px ;">
+                    <div style="color: #511a1a;">Subscribe to NewsLetter</div>
+                       <form >
+                           <input placeholder="&nbsp;&nbsp;Email" class="col-10" type="text" name="subscribe">
+                           <input class="col-11" type="submit" name="submit" value="subscribe">
+                      </form>
+                   </div>
+                 </div>
+        </div>
+              
+  </section> -->
+  <!-- subscribe button end -->
+
+
+	<footer class="container-fluid">
+		<div class="row justify-content-around">
+			<div class="search-bar">
+				<form>
+					<input  placeholder="&nbsp; &nbsp; search articles..." type="text" name="text">
+					<input style="font-family: FontAwesome; color:rgb(100,100,100); font-size: 14px;" value="&#xf002;" type="submit">
+				</form>
+			</div>
+		</div>
+        <hr style="border: solid 0.5px rgba(170,170,170);">
+		<div class="row justify-content-around footer-social-media-icons">
+			<!-- <div style="text-align: center;"  class="col-12">Follow Me On Social Media</div>
+			<div class="col-1"><i class="fab fa-youtube"></i></div>
+			<div class="col-1"><i class="fab fa-twitter"></i></div>
+			<div class="col-1"><i class="fab fa-facebook"></i></div> -->	
+		</div>
+        <hr style="border: solid 0.5px rgba(170,170,170);">
+		<div class="row justify-content-centre">
+			<div class="col"><span class="logo-footer">wmeCreatives &copy; 2021</span></div>
+		</div>
+	</footer>
+
+
+</body>
+</html>
