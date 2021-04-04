@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1f77c9f2d9.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="{% static 'blog/js/index.js' %}"></script>
 </head>
 <body style="background-color: #eeee;" onscroll="hide_follow_icons_scroll()"  onresize="removeDropdownHidingClass()">
 	<div class="top-about-contact-div">
@@ -40,8 +40,10 @@
 				<li><a href="{% url 'article_list' tag %}"><i style="color: #EFD81D;" class="fab fa-js"></i> &nbsp; Javascript</a></li>
 				{% endwith %}
 
+				<li><a href="#"><i class="fas fa-search"></i> &nbsp; Search</a></li>
+
 				<li onclick="myFunction()" class="menu-dropdown-button" style="background-color: brown;"><a href="#">
-					<img  style="width: 30px;" src="menu-icon.svg">
+					<img  style="width: 30px;" src="{% static 'blog/icons/menu-icon.svg' %}">
 				</a></li>
 			</ul>
 		</div>
@@ -67,3 +69,8 @@
 			</ul>
 		</div>
 	</header>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+	</style>

@@ -383,6 +383,32 @@ footer>div:nth-child(5){
   font-size: 50px;
   
 }
+/*========================main-menu-article-list.html styles=============================*/
+.main-menu-article-list-article-container{
+  background-color: white;
+  max-width: 80%;
+  /*margin: 0.7%;*/
+  /*padding: 0px;*/
+  padding-top: 20px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  padding-bottom: 10px;
+}
+.main-menu-article-list-article-img img{
+  width: 100%;
+}
+.articles-list-tags{
+  display: inline-block;
+  border: solid brown 0.5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  margin-top: 20px;
+}
+.articles-list-tags:hover{
+  background-color: brown;
+  cursor: pointer;
+  color: white;
+}
+/*=======================================================================================*/
 /*MEDIA QUERRIES 892PX*/
 @media screen and (min-width: 632px) {
 

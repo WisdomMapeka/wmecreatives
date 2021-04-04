@@ -37,11 +37,27 @@ def article_details(request, slug):
 
 
 def article_list(request, tag):
+  if tag == 'html':
+    menu = '''
+             <i style="color: #FD7E14;" class="fab fa-html5"></i>&nbsp;Html + 
+             <i style="color: #82C91E;" class="fab fa-css3"></i>&nbsp;Css
+           '''
+  elif tag=='python':
+    menu = '''
+          <i style="color: #3471A1;" class="fab fa-python"></i>&nbsp; Python
+          '''
+  elif tag=='javascript':
+    menu = ''' <i style="color: #EFD81D;" class="fab fa-js"></i> &nbsp; Javascript'''
+  elif tag == 'django':
+    menu = '''<i style="color: #FFD442;" class="fab fa-python"></i>&nbsp; Django '''
   if Tags.objects.filter(tag=tag).first()=='NoneType':
     tags = 0
   else:
     tags = Tags.objects.filter(tag=tag).first()
   article_list = Blog.objects.filter(tag=tags)
   youtube_links = YoutubeVideos.objects.all()[:4]
-  return render(request, 'blog/main-menu-article-list.html', {'articles':article_list,
-                                                      'youtube_links':youtube_links})
+  recent_articles = Blog.objects.all().order_by('date')[:4]
+  return render(request, 'blog/main-menu-article-list.html', {'all_articles':article_list,
+                                                      'recent_articles':recent_articles,
+                                                      'youtube_links':youtube_links,
+                                                      'menu':menu})

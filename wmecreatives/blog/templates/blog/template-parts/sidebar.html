@@ -1,0 +1,61 @@
+		    <div  class="col-10 col-lg-4 main-content-container-column-2">
+
+		        <div class="row  justify-content-start recent-articles">
+		        	<div class="col-12">
+		                <div class="display" style="margin-top: 10px; margin-bottom: 10px;font-size: 20px;color: brown;" class="col"><strong>Recent Topics</strong></div>
+		            </div> 
+                    <!-- recent articles start -->
+                    {% for article in recent_articles %}
+		      	    <div style="margin-top: 5px;margin-bottom: 25px; " class="col-12">
+		      	    	<span>
+	      	    			<a href="{% url 'article_details' article.slug %}">
+	      	       	             {{article.title|upper}}
+	      	       	        </a>
+		      	    	</span>
+		      	       <br>
+		      	       <br>
+		      	       <div style="font-size: 13px;" class="row">
+		      	       	    <div class="col"><i class="fas fa-user-edit"></i>
+		      	       	       &nbsp;by {{article.author.name}}
+		      	       	    </div>
+		      	       	    <div class="col"><i class="fas fa-calendar-alt"></i>
+		      	       	        &nbsp;{{article.date}}
+		      	       	    </div>
+		      	       	    <div class="col">
+		      	       	    	<i class="far fa-clock"></i>&nbsp;{{article.read_time}} min read
+		      	       	    </div>
+		      	       	    <!-- <div class="col"><i class="fas fa-comment"></i>&nbsp; 33</div> -->
+		      	       </div>
+		      	    </div>
+		      	    <hr>
+		      	    {% endfor %}
+		      	    <!-- recent articles end -->
+		        </div>
+                <!-- ------------------------videos----------------------------------------- -->
+                {% if youtube_links %}
+		        <div class="row  justify-content-start main-column-2-videos">
+		        	
+		        	{% for i in youtube_links %}
+		      	    <div class="col col-sm-6" style="margin-top: 5px;margin-bottom: 25px;">
+
+		      	       <!-- -------- -->
+		      	       <iframe src="{{i.link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		      	       <!-- --------------------------------- -->
+		      	    </div>
+		      	    {% endfor %}
+		        </div>
+		        {% endif %}
+
+                <!-- subscribe to newsletter form -->
+                	<div class="row  justify-content-centre subscribe-container">
+		        	<div class="col-12">
+		        		<div style="color: #511a1a;">Subscribe to NewsLetter</div>
+		        		   <form >
+		        		       <!-- <input placeholder="&nbsp;&nbsp;First Name" class="col-10" type="text" name="subscribe"> -->
+		        		       <input placeholder="&nbsp;&nbsp;Email" class="col-10" type="text" name="subscribe">
+		        		       <input class="col-11" type="submit" name="submit" value="subscribe">
+		        	       </form>
+		        	    </div>
+		            </div>	
+                <!-- </div> -->
+		    </div>

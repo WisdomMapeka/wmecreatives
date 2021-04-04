@@ -24,6 +24,13 @@ class Tags(models.Model):
     def __str__(self):
         return self.tag
 
+# class Menu(models.Model):
+#     menu_name = models.CharField(max_length=200, null=True, blank=True)
+#     menu_icon_class = models.CharField(max_length=1000, null=True, blank=True)
+#     menu_name_plus_icon_class = models.CharField(max_length=1000, null=True, blank=True)
+
+#     def __str__(self):
+#         return self.menu_name
 
 class Blog(models.Model):
     title = models.CharField(max_length=1000, null=True, blank=True)
