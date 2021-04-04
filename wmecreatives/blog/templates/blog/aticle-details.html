@@ -51,13 +51,24 @@
 	    <br>
 	    <br>
 	    <br>
-	    <hr style="border: solid 0.5px rgba(170,170,170);">
+      {% if article.tag.all %}
+      <div>
+        <hr style="border: solid 0.5px rgba(170,170,170);">
+      </div>
+      {% else %}
+      {% endif %}
 
 	    <!-- article tages -->
     	<div class="row aricle-details-topic-meta-tags">
-    		{% for tag in article.tag.all %}
-	       	   <span class="col">{{tag}}</span>
-	   	    {% endfor %}
+      <div>
+              {% for tag in article.tag.all %}
+              <a style="color: #511a1a;" href="{% url 'article_list' tag %}">
+                <span class="articles-list-tags">
+                    {{tag}}
+                </span>
+              </a>
+              {% endfor %}
+          </div>
     	</div>
 	    <!-- ------article tags end----- -->
 
