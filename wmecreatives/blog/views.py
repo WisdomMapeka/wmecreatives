@@ -2,6 +2,15 @@ from django.shortcuts import render, get_object_or_404
 from . models import Blog, Tags, HomePage,Author, YoutubeVideos
 from random import randint
 import random
+from pygments import lexers
+from pygments.formatters import HtmlFormatter
+from pygments import highlight 
+from pygments.styles import get_all_styles
+
+
+
+
+
 
 # Create your views here.
 def index(request):
@@ -29,9 +38,14 @@ def index(request):
 
 def article_details(request, slug):
   article = get_object_or_404(Blog, slug=slug)
+  # formatter = HtmlFormatter(full=True, linenos=True,style=article.style)
+  # lex =  lexers.get_lexer_by_name(article.language)
+  # code = highlight(article.content, lex, formatter)
+  
   youtube_links = YoutubeVideos.objects.all()[:4]
   related_articles = Blog.objects.filter(tag=article.tag.first())
-  return render(request, 'blog/aticle-details.html', {'article':article,
+  return render(request, 'blog/aticle-details.html', {'article':article ,
+                                                      # 'result':code,
                                                       'youtube_links':youtube_links,
                                                       'related_articles':related_articles})
 

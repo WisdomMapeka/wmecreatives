@@ -1,4 +1,8 @@
 {% include './template-parts/navbar.html' %}
+{% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/highlight/styles/monokai-sublime.css' %}">
+  <script type="text/javascript" src="{% static 'blog/highlight/js/highlight.pack.js' %}"></script>
+<script>hljs.highlightAll();</script>
 	
 	<!-- ================main content section================================= -->
   <section class="main-topic-details-social-icons-container">
@@ -45,7 +49,10 @@
   		
 	    <div >
 	    	<!-- blog article section start -->
-	    	{{article.content|safe}}
+        
+            {{article.content|safe}}
+          
+          
 	    	<!-- blog article end -->
 	    </div>
 	    <br>
@@ -94,16 +101,6 @@
                   </div>
                   
                   {% endfor %}
-                  <!-- <div class="col">
-                       <img src="pics/glacier-5584259_1920.jpg">
-                       <div style="font-size: 1.4rem; padding: 20px;" class="display-6">article article article article article</div>
-                       <div style="padding: 20px;">20 may 3030  by <strong>wiz</strong></div>
-                  </div>
-                  <div class="col hide-article-on-device-small">
-                       <img src="pics/glacier-5584259_1920.jpg">
-                       <div style="font-size: 1.4rem; padding: 20px;" class="display-6">article article article article article</div>
-                       <div style="padding: 20px;">20 may 3030  by <strong>wiz</strong></div>
-                  </div> -->
             </div>  
 	    </div><!-- related articles end-->
 	    {% endif %}
@@ -112,6 +109,9 @@
   	<!-- content end -->
   	
   </section>
+
+
+
   <!-- ================main content section end=================================  -->
 
 <!-- subscribe button -->
@@ -155,7 +155,6 @@
 			<div class="col"><span class="logo-footer">wmeCreatives &copy; 2021</span></div>
 		</div>
 	</footer>
-
 
 </body>
 </html>
