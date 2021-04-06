@@ -38,10 +38,6 @@ def index(request):
 
 def article_details(request, slug):
   article = get_object_or_404(Blog, slug=slug)
-  # formatter = HtmlFormatter(full=True, linenos=True,style=article.style)
-  # lex =  lexers.get_lexer_by_name(article.language)
-  # code = highlight(article.content, lex, formatter)
-  
   youtube_links = YoutubeVideos.objects.all()[:4]
   related_articles = Blog.objects.filter(tag=article.tag.first())
   return render(request, 'blog/aticle-details.html', {'article':article ,
@@ -75,3 +71,13 @@ def article_list(request, tag):
                                                       'recent_articles':recent_articles,
                                                       'youtube_links':youtube_links,
                                                       'menu':menu})
+
+
+def search_form(request):
+  recent_articles = Blog.objects.all().order_by('date')[:4]
+  all_articles = Blog.objects.all()
+  youtube_links = YoutubeVideos.objects.all()[:4]
+  return render(request, 'blog/search-templates/search_form.html', {'all_articles':all_articles ,
+                                                   'recent_articles':recent_articles,
+                                                    # 'result':code,
+                                                    'youtube_links':youtube_links})

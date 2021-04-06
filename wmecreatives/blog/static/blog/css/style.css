@@ -314,39 +314,46 @@ header{
   cursor: pointer;
 } 
 
-
-.search-bar{
-  display: none;
-  width: 300px;
-  padding-left: 100px;
-  background-color: rgb(40, 34, 34);
-  overflow: auto;
-  height: 45px;
-}
-form{
-  margin-top: 9px;
-  border-radius: 100px;
+.search-form-container{
+  padding-top: 30px;
+  padding-bottom: 65px;
   background-color: white;
-  overflow: hidden;
+  margin-top: 30px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
-.search-bar form input[type='text']{
-  width: 100px;
-  height: 24px;
-  border: none;
+.search-form-container div{
+  width: 90%;
+  margin: auto;
+}
+.search-form-container form{
+  margin: auto;
+  /*background-color: red;*/
+  width: 90%;
+}
+.search-form-container form input[type='text']{
+  width: 68%;
+  height: 40px;
+  border-radius: 5px;
+  border: solid 1px #959595;
+}
+input:focus {
   outline: none;
 }
-
-.search-bar form input[placeholder]{
-  font-size: 14px;
+.search-form-container form button[type='submit']{
+  width: 30%;
+  height: 41px;
+  border-radius: 5px;
+  border: solid 1px brown;
+  background-color: brown;
+  color: white;
+}
+.search-form-container form button[type='submit']:hover{
+  background-color: #bf1111;
 }
 
-
-.search-bar form input[type='submit']{
-  width: 90px;
-  height: 30px;
-  border: none;
-  background-color: white;
-  cursor: pointer;
+.search-results-title{
+  font-size: 20px;  
+  color: #511A1A;
 }
 
 
@@ -411,6 +418,8 @@ footer>div:nth-child(5){
 /*=======================================================================================*/
 /*MEDIA QUERRIES 892PX*/
 @media screen and (min-width: 632px) {
+  .search-form-container form input[type='text']{
+  width: 69%;}
 
   .search-bar{
     width: 400px;

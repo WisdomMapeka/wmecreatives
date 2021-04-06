@@ -16,7 +16,7 @@
 	
 	
 </head>
-<body style="background-color: #eeee;" onscroll="hide_follow_icons_scroll()"  onresize="removeDropdownHidingClass()">
+<body style="background-color: #F9F9F9;" onscroll="hide_follow_icons_scroll()"  onresize="removeDropdownHidingClass()">
 	<div class="top-about-contact-div">
 		<span>about&nbsp;<i class="fas fa-question-circle"></i></span>
 		<span>Contacts&nbsp;<i class="fas fa-id-card"></i></span>
@@ -44,7 +44,7 @@
 				<li><a href="{% url 'article_list' tag %}"><i style="color: #EFD81D;" class="fab fa-js"></i> &nbsp; Javascript</a></li>
 				{% endwith %}
 
-				<li><a href="#"><i class="fas fa-search"></i> &nbsp; Search</a></li>
+				<li><a href="{% url 'search_form' %}"><i class="fas fa-search"></i> &nbsp; Search</a></li>
 
 				<li onclick="myFunction()" class="menu-dropdown-button" style="background-color: brown;"><a href="#">
 					<img  style="width: 30px;" src="{% static 'blog/icons/menu-icon.svg' %}">
