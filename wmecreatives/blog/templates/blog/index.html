@@ -1,7 +1,14 @@
 {% include './template-parts/navbar.html' %}
-
+    {% if homepage.outer_background_img %}
+	<div style="background-image: url({{homepage.outer_background_img.url}}); background-size: contain;" class="header-section-container">
+	{% else %}
 	<div class="header-section-container">
+	{% endif %}
+	    {% if homepage.inner_background_img %}
+		<div style="background-image: url({{homepage.inner_background_img.url}}); background-size: contain;">
+		{% else %}
 		<div>
+		{% endif %}
 			{% if homepage.video %}
 			<video autoplay="true" muted="muted" loop id="mmCardVid"  class="mmCardVid">
                <source  src="{{homepage.video.url}}" type="video/mp4">
@@ -9,8 +16,13 @@
             </video>
             {% endif %}
 		</div>
+
 		<div class="header-section-theme">
-			<span style="color: #511a1a;">{{homepage.site_theme}}</span>&nbsp;&nbsp;<i style="color: #511a1a; opacity: unset;" class="fas fa-handshake"></i>
+			<span style="color: #511a1a;">{{homepage.site_theme}}</span>&nbsp;&nbsp;<i style="color: #511a1a; opacity: unset;" class="fas fa-handshake"></i><br>
+
+			<span style="font-size: 14px; display: inline-block;padding-left: 20px;padding-right:  20px;"> 
+				{{homepage.theme_description}}
+			</span>
 		</div>
 	</div>
 
@@ -70,7 +82,7 @@
 		      	    	    </a>
 		      	    		<br>
 		      	    		{% for tag in article.tag.all %}
-		      	    		<a style="color: #511a1a;" href="{% url 'article_list' tag %}">
+		      	    		<a style="color: #511a1a;" href="{% url 'article_list_by_tag' tag %}">
 			      	       	    <span class="articles-list-tags">
 			      	       	        {{tag}}
 			      	       	    </span>
@@ -79,7 +91,7 @@
 		      	    	</div>
 		      	    	<hr>
 		      	    </div>
-		      	    <div class="col-12" style="color: #511a1a;">
+		      	    <div class="col-12" style="color: #511a1a; opacity: 0.8;">
 		      	    		<span class="col">
 		      	    			<i class="fas fa-user-edit"></i>&nbsp;By {{article.author.name}}
 		      	    		</span>

@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog',
+
+    # 'haystack',
+    
 ]
 
 MIDDLEWARE = [
@@ -70,7 +73,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wmecreatives.wsgi.application'
 
-
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+#         'URL': 'http://127.0.0.1:9200/',
+#         'INDEX_NAME': 'haystack',
+#     },
+# }
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 

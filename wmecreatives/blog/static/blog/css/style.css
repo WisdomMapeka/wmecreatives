@@ -113,7 +113,7 @@ header{
 }
 
 .header-section-container{
-  height: 400px;
+  height: 700px;
 /*  background-image: -webkit-linear-gradient(left,black,grey);
   background-image: -moz-linear-gradient(left,black,grey);
   background-image: -o-linear-gradient(left,black,grey);
@@ -127,12 +127,12 @@ header{
 
 }
 .header-section-container div:nth-child(1){
-  height: 50%;
+  height: auto;
   background-color: white;
   width: 80%;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  /*box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;*/
   /*box-shadow: white 0px 8px 10px 0px;*/
-  overflow: auto;
+  /*overflow: auto;*/
   overflow-y: hidden; 
 
 }
@@ -193,6 +193,7 @@ header{
   background-color: rgba(250,250,250, 0.9);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   color: rgb(40,40,40);
+  overflow: auto;
 }
 /*CONTENT STYLES SECTION*/
 
@@ -360,34 +361,43 @@ input:focus {
 footer{
   margin-top: 30px;
   background-color:rgb(40, 34, 34);
-  padding-top: 50px;
-  padding-bottom: 30px;
+  /*padding-top: 5px;*/
+  /*padding-bottom: 2.5px;*/
   border: solid 1px rgb(200,200,200);
   color: rgb(200,200,200);
 
 }
 footer>div:nth-child(3){
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 footer>div:nth-child(5){
-  margin-top: 30px;
+  margin-top: 10px;
   text-align: center;
 }
 
-.footer-social-media-icons div:nth-child(2){
+.footer-social-media-icons div:nth-child(1){
   color: red;
-  font-size: 50px;
+  font-size: 25px;
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px;*/
+  cursor: pointer;
+  
+}
+.footer-social-media-icons div:nth-child(2){
+  color: #1B9CEB;
+  font-size: 25px;
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px;*/
+  cursor: pointer;
   
 }
 .footer-social-media-icons div:nth-child(3){
-  color: #1B9CEB;
-  font-size: 50px;
-  
-}
-.footer-social-media-icons div:nth-child(4){
   color: #38529A;
-  font-size: 50px;
+  font-size: 25px;
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px;*/
+  cursor: pointer;
   
 }
 /*========================main-menu-article-list.html styles=============================*/

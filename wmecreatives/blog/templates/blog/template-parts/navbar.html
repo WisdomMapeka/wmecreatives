@@ -17,32 +17,28 @@
 	
 </head>
 <body style="background-color: #F9F9F9;" onscroll="hide_follow_icons_scroll()"  onresize="removeDropdownHidingClass()">
-	<div class="top-about-contact-div">
+<!-- 	<div class="top-about-contact-div">
 		<span>about&nbsp;<i class="fas fa-question-circle"></i></span>
 		<span>Contacts&nbsp;<i class="fas fa-id-card"></i></span>
 		<span>Send Message&nbsp;<i class="fas fa-sms"></i></span>
 		<span>Projects&nbsp; <i class="fab fa-github"></i></span>
-	</div>
+	</div> -->
 	<header>
 		<div class="menu-container">
 			
 			<ul style="color: white;">
 				<li class="logo"><a href="{% url 'index' %}">&nbsp; wme<span style="color: brown;">C</span>reatives</a></li>
-				{% with tag="html" %} 
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #FD7E14;" class="fab fa-html5"></i>&nbsp;Html + <i style="color: #82C91E;" class="fab fa-css3"></i>&nbsp;Css</a></li>
-				{% endwith %}
 
-                {% with tag="django" %} 
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #FFD442;" class="fab fa-python"></i>&nbsp; Django</a></li>
-				{% endwith %}
+				<li><a href="{% url 'article_list' %}">Blog&nbsp; <i class="fas fa-blog"></i></a></li>
 
-                {% with tag="python" %}
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #3471A1;" class="fab fa-python"></i>&nbsp; Python</a></li>
-				{% endwith %}
+                <li><a href="#">Projects&nbsp; <i class="fab fa-github"></i></a></li>
+				<li><a href="#">Contacts&nbsp;<i class="fas fa-id-card"></i></a></li>
 
-                {% with tag="javascript" %}
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #EFD81D;" class="fab fa-js"></i> &nbsp; Javascript</a></li>
-				{% endwith %}
+				<li><a href="#">Send Message&nbsp;<i class="fas fa-sms"></i></a></li>
+				<!-- <li><a href="#">&nbsp;about&nbsp;<i class="fas fa-question-circle"></i></a></li> -->
+
+				
+	
 
 				<li><a href="{% url 'search_form' %}"><i class="fas fa-search"></i> &nbsp; Search</a></li>
 
@@ -54,21 +50,21 @@
 
 		<div style="background-color: rgb(200,200,200);" id="menu-container-dropdown-id" class="menu-container-dropdown">
 			<ul>
-				{% with tag="html" %}
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #FD7E14;" class="fab fa-html5"></i>&nbsp;  Html + <i style="color: #82C91E;" class="fab fa-css3"></i>&nbsp; Css</a></li>
-				{% endwith %}
 
-				{% with tag="django" %} 
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #FFD442;" class="fab fa-python"></i>&nbsp; Django</a></li>
-				{% endwith %}
+				<li><a href="#"><i style="color: #FD7E14;" class="fab fa-html5"></i>&nbsp;  Html + <i style="color: #82C91E;" class="fab fa-css3"></i>&nbsp; Css</a></li>
 
-				{% with tag="python" %}
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #3471A1;" class="fab fa-python"></i> &nbsp; Python</a></li>
-				{% endwith %}
 
-				{% with tag="javascript" %}
-				<li><a href="{% url 'article_list' tag %}"><i style="color: #EFD81D;" class="fab fa-js"></i>&nbsp; Javascript</a></li>
-				{% endwith %}
+
+				<li><a href="#"><i style="color: #FFD442;" class="fab fa-python"></i>&nbsp; Django</a></li>
+
+
+
+				<li><a href="#"><i style="color: #3471A1;" class="fab fa-python"></i> &nbsp; Python</a></li>
+
+
+
+				<li><a href="#"><i style="color: #EFD81D;" class="fab fa-js"></i>&nbsp; Javascript</a></li>
+
 
 			</ul>
 		</div>

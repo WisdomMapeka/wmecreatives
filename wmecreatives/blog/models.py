@@ -18,7 +18,10 @@ STYLE_CHOICES = sorted([(item, item) for item in get_all_styles()])
 
 class HomePage(models.Model):
     site_theme = models.CharField(max_length=300, null=True, blank=True)
-    video = models.FileField(upload_to='media_files/homepage/background_video')
+    theme_description = models.CharField(max_length=1000, null=True, blank=True)
+    video = models.FileField(upload_to='media_files/homepage/background_video', null=True, blank=True)
+    outer_background_img = models.ImageField(upload_to='media_files/homepage/background_img/outer', null=True, blank=True)
+    inner_background_img = models.ImageField(upload_to='media_files/homepage/background_img/inner', null=True, blank=True)
 
 
     def __str__(self):
@@ -34,6 +37,7 @@ class Author(models.Model):
 
 class Tags(models.Model):
     tag = models.CharField(max_length=200, null=True, blank=True)
+    icon_class = models.CharField(max_length=1000, null=True, blank=True)
 
     def __str__(self):
         return self.tag
@@ -58,7 +62,7 @@ class Blog(models.Model):
     num_views = models.CharField(max_length=30, null=True, blank=True)
     read_time = models.CharField(max_length=30, null=True, blank=True)
     linenos = models.BooleanField(default=False)
-    language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
+    language = models.CharField(choices=LANGUAGE_CHOICES, max_length=100, null=True, blank=True)
     style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
 
     def __str__(self):

@@ -67,7 +67,7 @@
 		      	    	    </a>
 		      	    		<br>
 		      	    		{% for tag in article.tag.all %}
-		      	    		<a style="color: #511a1a;" href="{% url 'article_list' tag %}">
+		      	    		<a style="color: #511a1a;" href="{% url 'article_list_by_tag' tag %}">
 			      	       	    <span class="articles-list-tags">
 			      	       	        {{tag}}
 			      	       	    </span>
@@ -76,7 +76,7 @@
 		      	    	</div>
 		      	    	<hr>
 		      	    </div>
-		      	    <div class="col-12" style="color: #511a1a;">
+		      	    <div class="col-12" style="color: #511a1a;opacity: 0.8;">
 		      	    		<span class="col">
 		      	    			<i class="fas fa-user-edit"></i>&nbsp;By {{article.author.name}}
 		      	    		</span>

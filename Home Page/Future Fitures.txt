@@ -1,3 +1,0 @@
-Future Fitures
--Dropdown on menu items, python, django, javascript etc
--take timne to see what to display on the dropdowns, either topics, or have an additona menu series or have series as part of the main menu dropdown 
