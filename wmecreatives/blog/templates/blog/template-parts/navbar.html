@@ -5,17 +5,152 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'blog/css/article-details.css' %}">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<script src="https://kit.fontawesome.com/1f77c9f2d9.js" crossorigin="anonymous"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/1f77c9f2d9.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="{% static 'blog/js/index.js' %}"></script>
 
-	<link href="https://myCDN.com/prism@v1.x/themes/prism.css" rel="stylesheet" />
 	
 	
 </head>
-<body style="background-color: #F9F9F9;" onscroll="hide_follow_icons_scroll()"  onresize="removeDropdownHidingClass()">
-<header>
-</header>
+<body style="background-color: #f7f7f7;" onscroll="hide_follow_icons_scroll()"  onresize="removeDropdownHidingClass()">
+	<div class="top-line"></div>
+
+	<header>
+		<div class="menu-container">
+			<ul>
+				<li  class="logo"><a style="color: black;"  href="">&nbsp; wme<span style="color: #15adc4;">C</span>reatives</a></li>
+				<li><a href="">Blog</a></li>
+                <li><a href="#">Projects</a></li>
+				<li><a href="#">Contacts</a></li>
+				<li><a href="#">Send Message</a></li>
+				<!-- <li><a href="#">&nbsp;about&nbsp;<i class="fas fa-question-circle"></i></a></li> -->
+				<li><a href=""><i class="fas fa-search"></i> &nbsp; Search</a></li>
+				<li onclick="myFunction()" class="menu-dropdown-button" >
+					<a href="#">
+					    <img  style="width: 30px;" src="{% static 'blog/icons/menu-icon.svg' %}">
+				    </a>
+			    </li>
+			</ul>
+		</div>
+
+		<div id="menu-container-dropdown-id" class="menu-container-dropdown">
+			<ul>
+				<li><a href="#">Html +  Css</a></li>
+				<li><a href="#">Django</a></li>
+				<li><a href="#">Python</a></li>
+				<li><a href="#">Javascript</a></li>
+			</ul>
+		</div>
+
+
+
+
+		<div class="hero-section">
+			<!-- col-1 -->
+			<div class="hot-topic-container">
+				<div>
+					<span class="hot-topic-circle"></span>&nbsp;&nbsp;
+					<span class="hot-topic-theme">WELLCOE TO WMECREATIVES</span>
+				</div>
+				<div class="hot-topic-topic">Learn As We Create Together</div>
+				<div class="hot-topic-time-posted"><span><i class="fas fa-handshake"></i></span></div>
+			</div>
+			<!-- col-2 -->
+			<div class="breaking-news-container">
+				<div>
+					<div class="breaking-news-theme">TODAY'S CODE</div>
+					<div class="breaking-news-topic-topic">
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+						Lorem Ipsum Topic Of Our News paper
+					</div>
+					<div class="breaking-news-time-author-container">
+						<span>1 hour ago by</span><span style="color: blue;"> wiz </span>
+					</div>
+				</div>
+
+				<!-- <div>
+					<div class="breaking-news-theme">BREAKING NEWS</div>
+					<div class="breaking-news-topic-topic">
+						Lorem Ipsum Topic Of Our News paper
+					</div>
+					<div class="breaking-news-time-author-container">
+						<span>1 hour ago by</span><span style="color: blue;"> wiz </span>
+					</div>
+				</div> -->
+
+				<!-- <div>
+					<div class="breaking-news-theme">BREAKING NEWS</div>
+					<div class="breaking-news-topic-topic">
+						Lorem Ipsum Topic Of Our News paper
+					</div>
+					<div class="breaking-news-time-author-container">
+						<span>1 hour ago by</span><span style="color: blue;"> wiz </span>
+					</div>
+				</div> -->
+			</div>
+		</div>
+
+
+
+
+		<div class="breaking-news-second-main-container">
+			<div class="bns-main-theme">RECENT</div>
+
+			<div class="bns-articles-main-container container-fluid">
+				<div class="bns-articles-sub-container row justify-content-around">                      
+					<div class="col-12  col-lg-5"><!-- actual article inner container-------------- -->
+						<div class="bns-article-img">
+							<img src="{% static 'ufos-5577222_1920.jpg' %}">
+						</div>
+						<div>
+							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
+							<div class="article-font-style">Lorem Ipsum Topic Of</div>
+						</div>
+					</div>                      
+					<div class="col-12  col-lg-5"><!--actual article inner container -------------- -->
+						<div class="bns-article-img">
+							<img src="{% static 'ufos-5577222_1920.jpg' %}">
+						</div>
+						<div >
+							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
+							<div class="article-font-style">Lorem Ipsum Topic Of</div>
+						</div>
+					</div>                      
+					<div class="col-12  col-lg-5"><!-- actual article inner container-------------- -->
+						<div class="bns-article-img">
+							<img src="{% static 'ufos-5577222_1920.jpg' %}">
+						</div>
+						<div>
+							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
+							<div class="article-font-style">Lorem Ipsum Topic Of Lorem Ipsum Topic Of</div>
+						</div>
+					</div>
+					<div class="col-12  col-lg-5">
+						<div class="bns-article-img">
+							<img src="{% static 'ufos-5577222_1920.jpg' %}">
+						</div>
+						<div>
+							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
+							<div class="article-font-style">Lorem Ipsum Topic Of Lorem Ipsum Topic Of</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="bns-outer-article">
+					<div>27 minutes ago Thailand</div><br>
+					<div class="article-font-style">Lorem Ipsum Topic Of Lorem Ipsum Topic Of</div>
+				</div> -->
+			</div>
+			
+		</div>
+	</header>
