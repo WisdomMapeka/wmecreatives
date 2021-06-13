@@ -86,11 +86,12 @@ WSGI_APPLICATION = 'wmecreatives.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
+        # 'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wmecreativesdb',
         'USER': 'root',
         'PASSWORD': '1234567wiz',
         'HOST': 'localhost',
-        'PORT':'3306',
+        # 'PORT':'3306',
     }
 }
 
