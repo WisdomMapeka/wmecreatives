@@ -1,195 +1,93 @@
 {% load static %}
 {% include './template-parts/navbar.html' %}
 
-<div style="background-image: url({% static 'ufos-5577222_1920.jpg' %}) " class="hero-section">
+{% if home_record.background_img %}
+<div style="background-image: url({{home_record.background_img.url}}) " class="hero-section">
+{% else %}
+<div style="background-color: black;" class="hero-section">
+{% endif %}
 			<!-- col-1 -->
+			{% if home_record %}
 			<div class="hot-topic-container">
+				
 				<div>
 					<span class="hot-topic-circle"></span>&nbsp;&nbsp;
-					<span class="hot-topic-theme">WELLCOE TO WMECREATIVES</span>
+					<span class="hot-topic-theme">{{home_record.site_theme}}</span>
 				</div>
-				<div class="hot-topic-topic">Learn As We Create Together</div>
+				<div class="hot-topic-topic">{{home_record.theme_description}}</div>
 				<div class="hot-topic-theme-handshake-icon"><span><i class="fas fa-handshake"></i></span></div>
 			</div>
+			{% endif %}
 			<!-- col-2 -->
+
+			{% if todayscode %}
 			<div class="breaking-news-container">
 				<div>
-					<div class="breaking-news-theme">TODAY'S CODE</div>
+					<div class="breaking-news-theme">{{todayscode.title}}</div>
 					<div class="breaking-news-topic-topic">
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
-						Lorem Ipsum Topic Of Our News paper
+						{{todayscode.code}}
 					</div>
 					<div class="breaking-news-time-author-container">
-						<span>1 hour ago by</span><span style="color: blue;"> wiz </span>
+						<span>{{todayscode.date_created}} by</span><span style="color: blue;"> {{todayscode.author}} </span>
 					</div>
 				</div>
-
-				<!-- <div>
-					<div class="breaking-news-theme">BREAKING NEWS</div>
-					<div class="breaking-news-topic-topic">
-						Lorem Ipsum Topic Of Our News paper
-					</div>
-					<div class="breaking-news-time-author-container">
-						<span>1 hour ago by</span><span style="color: blue;"> wiz </span>
-					</div>
-				</div> -->
-
-				<!-- <div>
-					<div class="breaking-news-theme">BREAKING NEWS</div>
-					<div class="breaking-news-topic-topic">
-						Lorem Ipsum Topic Of Our News paper
-					</div>
-					<div class="breaking-news-time-author-container">
-						<span>1 hour ago by</span><span style="color: blue;"> wiz </span>
-					</div>
-				</div> -->
 			</div>
+			{% endif %}
 		</div>
 
 
 
-
+                {% if blogs %}
+                
 		<div class="breaking-news-second-main-container">
 			<div class="bns-main-theme">RECENT</div>
-
+                        
+                        
 			<div class="bns-articles-main-container container-fluid">
-				<div class="bns-articles-sub-container row justify-content-around">                      
+				<div class="bns-articles-sub-container row justify-content-around"> 
+				        {% for blog in blogs %}                     
 					<div class="col-12  col-lg-5"><!-- actual article inner container-------------- -->
 						<div class="bns-article-img">
-							<img src="{% static 'ufos-5577222_1920.jpg' %}">
+							{% if blog.lead_img %}
+							<img src="{{blog.lead_img.url}}">
+							{% else %}
+							{% endif %}
 						</div>
 						<div>
-							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
-							<div class="article-font-style">Lorem Ipsum Topic Of</div>
+							<div>published: {{blog.date_created}}&nbsp;&nbsp;&nbsp;<span style="color:green;cursor: pointer;" class="article-font-style">Python</span></div><br>
+							<div class="article-font-style">{{blog.title}}</div>
 						</div>
-					</div>                      
-					<div class="col-12  col-lg-5"><!--actual article inner container -------------- -->
-						<div class="bns-article-img">
-							<img src="{% static 'ufos-5577222_1920.jpg' %}">
-						</div>
-						<div >
-							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
-							<div class="article-font-style">Lorem Ipsum Topic Of</div>
-						</div>
-					</div>                      
-					<div class="col-12  col-lg-5"><!-- actual article inner container-------------- -->
-						<div class="bns-article-img">
-							<img src="{% static 'ufos-5577222_1920.jpg' %}">
-						</div>
-						<div>
-							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
-							<div class="article-font-style">Lorem Ipsum Topic Of Lorem Ipsum Topic Of</div>
-						</div>
-					</div>
-					<div class="col-12  col-lg-5">
-						<div class="bns-article-img">
-							<img src="{% static 'ufos-5577222_1920.jpg' %}">
-						</div>
-						<div>
-							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
-							<div class="article-font-style">Lorem Ipsum Topic Of Lorem Ipsum Topic Of</div>
-						</div>
-					</div>
-					<div class="col-12  col-lg-5">
-						<div class="bns-article-img">
-							<img src="{% static 'ufos-5577222_1920.jpg' %}">
-						</div>
-						<div>
-							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
-							<div class="article-font-style">Lorem Ipsum Topic Of Lorem Ipsum Topic Of</div>
-						</div>
-					</div>
-					<div class="col-12  col-lg-5">
-						<div class="bns-article-img">
-							<img src="{% static 'ufos-5577222_1920.jpg' %}">
-						</div>
-						<div>
-							<div>27 minutes ago <span class="article-font-style">Tag</span></div><br>
-							<div class="article-font-style">Lorem Ipsum Topic Of Lorem Ipsum Topic Of</div>
-						</div>
-					</div>
+					</div> 
+					{% endfor %}                     
+
+
 				</div>
 			</div>
 			
+			
 		</div>
+		{% endif %}
 	</header>
 
     
     <!-- categories section -->
+        {% if categories %}
 	<section class="categories-section-main-container container-fluid">
 
 		<div class="select-by-category-topic">Select Topic By Category</div>
 
 		<div class="categories-sub-container row justify-content-between">
+                        {% for cat in categories %}
 			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div><i class="fab fa-python"></i></div>
-				<div>Python</div>
+				<div><i class="{{cat.icon_class}}"></i></div>
+				<div>{{cat.name}}</div>
 			</div>
+                        {% endfor %}
 
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div><i class="fab fa-php"></i></div>
-				<div>Php</div>
-			</div>
-
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div><i class="fab fa-js"></i></div>
-				<div>Js</div>
-			</div>
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div><i class="fab fa-js"></i></div>
-				<div>Js</div>
-			</div>
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div><i class="fab fa-js"></i></div>
-				<div>Js</div>
-			</div>
-
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div>icon</div>
-				<div>Text</div>
-			</div>
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div>icon</div>
-				<div>Text</div>
-			</div>
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div>icon</div>
-				<div>Text</div>
-			</div>
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div>icon</div>
-				<div>Text</div>
-			</div>
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div>icon</div>
-				<div>Text</div>
-			</div>
-
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div>icon</div>
-				<div>Text</div>
-			</div>
 		</div>
 		
 	</section>
+	{% endif %}
 
 
     <!-- VEDEO SECTION -->

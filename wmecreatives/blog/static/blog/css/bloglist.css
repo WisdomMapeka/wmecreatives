@@ -24,11 +24,18 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
-.post-date-author-update{
+.post-date-author-update-bloglist{
   padding-top: 10px;
   /*padding-bottom: 10px;*/
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-date-author-update-bloglist>span {
+  display: inline-block;
+  margin-right: 30px;
+  color: rgb(100, 100, 100);
   font-size: 13px;
-  color: rgb(50, 50, 50);
 }
 
 /*--------------------------subscribe form-------------------*/
@@ -57,6 +64,31 @@
 }
 
 /* ------------------BLOGDETAILS--------------------------- */
+.blogdetails-topic{
+  background-color: black;
+  color: white;
+  padding: 40px;
+}
+.auther-pic{
+  background-color: white;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+}
+.auther-pic img{
+  width: 100%;
+  height: 100%;
+}
+.post-meta-data{
+  display: flex;
+  flex-wrap: wrap;
+}
+.post-meta-data>div {
+  margin-right: 30px;
+  color: rgb(100, 100, 100);
+  font-size: 15px;
+}
 .blogdetails_related_articles>div{
   border: solid;
   margin-bottom: 40px;
