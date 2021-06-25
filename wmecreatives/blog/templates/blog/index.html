@@ -91,54 +91,28 @@
 
 
     <!-- VEDEO SECTION -->
+    {% if youtube_vids %}
 	<section class="video-section-main-container container-fluid">
 		<div class="video-section-topic">YOUTUBE VIDEOS</div>
 
 		<div class="video-section-sub-container row justify-content-between">
+			{% for vid in youtube_vids %}
 			<div class="video-item col-12 col-sm-6 col-lg-3">
 				<div>
-					<iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
+					<iframe  src="{{vid.link}}"></iframe>
 				</div>
-				<div class="video-topic article-font-style">Lorem Ipsum text as a topic of a video test</div>
-				<div class="post-tags"><span>tags</span><span>tags</span></div>
-			</div>
-
-			<div class="video-item col-12 col-sm-6 col-lg-3">
-				<div>
-					<iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
-				</div>
-				<div class="video-topic article-font-style">Lorem Ipsum text as a topic of a video test</div>
+				<div class="video-topic article-font-style">{{vid.title}}</div>
 				<div class="post-tags">
-					<span>tags</span><span>tags</span><span>tags</span><span>tags</span><span>tags</span>
+					{% for tag in vid.tags.all %}
+					<span>{{tag.name}}</span>
+					{% endfor %}
 				</div>
 			</div>
-
-			<div class="video-item col-12 col-sm-6 col-lg-3">
-				<div>
-					<iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
-				</div>
-				<div class="video-topic article-font-style">Lorem Ipsum text as a topic of a video test</div>
-				<div class="post-tags">
-					<span>tags</span><span>tags</span><span>tags</span><span>tags</span><span>tags</span>
-				</div>
-			</div>
-
-			<div class="video-item col-12 col-sm-6 col-lg-3">
-				<div>
-					<iframe  src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
-				</div>
-				<div class="video-topic article-font-style">Lorem Ipsum text as a topic of a video test</div>
-				<div class="post-tags">
-					<span>tags</span><span>tags</span><span>tags</span>
-				</div>
-			</div>
+			{% endfor %}
 
 		</div>
 	</section>
+	{% endif %}
 
     
     <!-- SUBSCRIBE FORM -->

@@ -39,12 +39,12 @@ class TodaysCode(models.Model):
         return self.title
 
 
-class Author(models.Model):
-    name = models.CharField(max_length=200, null=True, blank=True)
-    image = models.ImageField(upload_to='media_files/authorImg', null=True, blank=True)
+# class Author(models.Model):
+#     name = models.CharField(max_length=200, null=True, blank=True)
+#     image = models.ImageField(upload_to='media_files/authorImg', null=True, blank=True)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 class Tags(models.Model):
     tag = models.CharField(max_length=200, null=True, blank=True)
@@ -76,7 +76,9 @@ class Blog(models.Model):
     date_created = models.DateField(auto_now_add=True, null=True, blank=True)
     content = models.TextField(null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, blank=True)
+    author = models.CharField(max_length=200, null=True, blank=True)
+    author_image = models.ImageField(upload_to='media_files/authorImg', null=True, blank=True)
+
     num_views = models.CharField(max_length=30, null=True, blank=True)
     read_time = models.CharField(max_length=30, null=True, blank=True)
     linenos = models.BooleanField(default=False)
@@ -92,6 +94,8 @@ class YoutubeVideos(models.Model):
     title = models.CharField(max_length=1000, null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
     link = models.TextField(null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    Tags = models.ManyToManyField(Tags, blank=True)
 
 
     def __str__(self):

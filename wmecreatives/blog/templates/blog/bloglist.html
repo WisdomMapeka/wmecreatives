@@ -1,80 +1,56 @@
 {% load static %}
 {% include './template-parts/navbar.html' %}
 
+<style>
+	a{ text-decoration: none;
+  color: unset; }
+</style>
 
 <div class="cotainer">
 	<div class="bloglist-main-container row">
+		{% if blogs %}
 		<section class="col-lg-9">
+			{% for blog in blogs %}
 			<div class="post-main-container">
 				<div class="row">
-					<div class="bloglist-page-article-img col-md-4">
-						<img  src="{% static 'ufos-5577222_1920.jpg' %}">
-					</div>
+					
+						{% if blog.lead_img %}
+						<div class="bloglist-page-article-img col-md-4">
+							<a href="{% url 'blogdetail' blog.slug %}">
+							    <img  src="{{blog.lead_img.url}}">
+							</a>
+						</div>
+						{% else %}
+						{% endif %}
+					
+
+
 					<div class="col-md-8 bloglist-content-section">
-						<div>Topic</div>
-						<div>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-						<div class="post-tags"><span>tags</span><span>tags</span></div>
+
+						<div><a href="{% url 'blogdetail' blog.slug %}">{{blog.title}}</a></div>
+						<div><a href="{% url 'blogdetail' blog.slug %}">{{blog.summary}}</a></div>
+						<div class="post-tags">
+							{% for tag in blog.tags.all %}
+							<span>{{tag.name}}</span>
+							{% endfor %}
+						</div>
 					</div>
 				</div>
 
 				<div class="post-date-author-update-bloglist">
-					<span>by wiz</span>
-					<span>date: 4444</span>
-					<span>updated: 3333</span>
-					<span>comments: 4444</span>
-					<span>views: 3333</span>
+					
+						<span><a href="{% url 'blogdetail' blog.slug %}">by {{blog.author}}</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}">date: {{blog.date_created}}</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}">updated: 3333</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}">comments: 88</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}">views: {{blog.num_views}}</a></span>
+					
 				</div>
 			</div>
-			<!-- ---------------------------- -->
-			<div class="post-main-container">
-				<div class="row">
-					<div class="bloglist-page-article-img col-md-4">
-						<img  src="{% static 'ufos-5577222_1920.jpg' %}">
-					</div>
-					<div class="col-md-8 bloglist-content-section">
-						<div>Topic</div>
-						<div>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-						<div class="post-tags"><span>tags</span><span>tags</span></div>
-					</div>
-				</div>
-
-				<div class="row post-date-author-update">
-					<span class="col">by wiz</span>
-					<span class="col">date: 4444</span>
-					<span class="col">updated: 3333</span>
-					<span class="col">comments: 4444</span>
-					<span class="col">views: 3333</span>
-				</div>
-			</div>
-			<!-- ------------------------------------ -->
-			<div class="post-main-container">
-				<div class="row">
-					<div class="bloglist-page-article-img col-md-4">
-						<img  src="{% static 'ufos-5577222_1920.jpg' %}">
-					</div>
-					<div class="col-md-8 bloglist-content-section">
-						<div>Topic</div>
-						<div>ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-						<div class="post-tags"><span>tags</span><span>tags</span></div>
-					</div>
-				</div>
-
-				<div class="row post-date-author-update">
-					<span class="col">by wiz</span>
-					<span class="col">date: 4444</span>
-					<span class="col">updated: 3333</span>
-					<span class="col">comments: 4444</span>
-					<span class="col">views: 3333</span>
-				</div>
-			</div>
+			{% endfor %}			
 			<!-- ------------------------------------------ -->
 		</section>
+		{% endif %}
 
 		<section class="col-lg-3">
 			<div class="bloglist-page-subscribe-form">
