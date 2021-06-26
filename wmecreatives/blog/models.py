@@ -1,18 +1,6 @@
 from django.db import models
 from django.db import models
-from pygments.lexers import get_all_lexers
-from pygments.styles import get_all_styles
 
-LANGUAGE_CHOICES = (
-    ('python', 'python'),
-    ('javascript', 'javascript'),
-    ('django', 'django'),
-    ('css', 'css'),
-    ('html','html'),
-    ('mysql','mysql'),
-    ('postgresql','postgresql'))
-
-STYLE_CHOICES = sorted([(item, item) for item in get_all_styles()])
 
 # Create your models here.
 
@@ -39,12 +27,6 @@ class TodaysCode(models.Model):
         return self.title
 
 
-# class Author(models.Model):
-#     name = models.CharField(max_length=200, null=True, blank=True)
-#     image = models.ImageField(upload_to='media_files/authorImg', null=True, blank=True)
-
-#     def __str__(self):
-#         return self.name
 
 class Tags(models.Model):
     tag = models.CharField(max_length=200, null=True, blank=True)
@@ -78,12 +60,10 @@ class Blog(models.Model):
     summary = models.TextField(null=True, blank=True)
     author = models.CharField(max_length=200, null=True, blank=True)
     author_image = models.ImageField(upload_to='media_files/authorImg', null=True, blank=True)
-
+    youtube_video_link = models.TextField(null=True, blank=True)
     num_views = models.CharField(max_length=30, null=True, blank=True)
     read_time = models.CharField(max_length=30, null=True, blank=True)
-    linenos = models.BooleanField(default=False)
-    language = models.CharField(choices=LANGUAGE_CHOICES, max_length=100, null=True, blank=True)
-    style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
+
 
     def __str__(self):
         return self.title

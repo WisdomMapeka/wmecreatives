@@ -1,6 +1,9 @@
 {% load static %}
 {% include './admin-template-parts/admin-header.html' %}
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<style>
+
+</style>
 	<section class="container-fluid">
 		<div class="row">
 			{% include './admin-template-parts/admin-sidebar.html' %}<!-- col 1 with col-3 class -->
@@ -105,6 +108,8 @@
 
    function send(){
      var data = quill.container.innerHTML;
+     // var data = quill.getContents();
+     // var data = quill.root.innerHTML;
      // print(data);
      textarea.innerHTML = data;
      console.log(data);

@@ -18,7 +18,8 @@
   border: solid 1px rgba(230,230,230, 0.7);
   padding: 20px;
   border-bottom: solid 3px #15adc4;
-  margin-top: 40px;
+  /*margin-top: 40px;*/
+  margin-bottom: 40px;
 }
 .bloglist-content-section div:nth-child(1){
   font-weight: bold;
@@ -43,7 +44,7 @@
 
 .bloglist-page-subscribe-form{
   background-color:white;
-  margin-top: 40px;
+  /*margin-top: 40px;*/
   padding-top: 20px;
   padding-bottom: 20px;
   /*color: white;*/
@@ -91,8 +92,10 @@
   font-size: 15px;
 }
 .blogdetails_related_articles>div{
-  border: solid;
+  /*border: solid;*/
   margin-bottom: 40px;
+  background-color: white;
+  border: solid 1px rgba(230,230,230, 0.7);
 }
 /* .blogdetails_related_articles>div:first-child{
   margin-bottom: 40px;
@@ -102,7 +105,8 @@
 } */
 .blogdetails-related-articles-article-img img{
   width: 100%;
-  padding-top: 12px;;
+  padding-top: 12px;
+  height: 150px;
 }
 .blogdetails-related-articles-post-tags span{
   border: solid 1px #15adc4;
