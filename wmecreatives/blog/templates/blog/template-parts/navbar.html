@@ -21,7 +21,7 @@
 			<ul>
 				<li  class="logo"><a style="color: black;"  href="{% url 'index' %}">&nbsp; wme<span style="color: #15adc4;">C</span>reatives</a></li>
 				<li><a href="{% url 'bloglist' %}">Blog</a></li>
-                <li><a href="#">Projects</a></li>
+                <!-- <li><a href="#">Projects</a></li> -->
 				<li><a href="#">Contacts</a></li>
 				<li><a href="#">Send Message</a></li>
 				<!-- <li><a href="#">&nbsp;about&nbsp;<i class="fas fa-question-circle"></i></a></li> -->
@@ -36,16 +36,16 @@
 
 		<div id="menu-container-dropdown-id" class="menu-container-dropdown">
 			<ul>
-				<li><a href="#">Html +  Css</a></li>
-				<li><a href="#">Django</a></li>
-				<li><a href="#">Python</a></li>
-				<li><a href="#">Javascript</a></li>
+				<li><a href="{% url 'bloglist' %}">Blog</a></li>
+				<li><a href="#">Contacts</a></li>
+				<li><a href="#">Send Message</a></li>
+				<li><a href=""><i class="fas fa-search"></i> &nbsp; Search</a></li>
 			</ul>
 		</div>
 
 
 
-               <footer style="border: none;">
+         <footer style="border: none;">
 			<div>
 				<i class="fab fa-youtube"></i>
 			</div>
