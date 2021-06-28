@@ -1,11 +1,16 @@
 {% load static %}
 {% include './template-parts/navbar.html' %}
-<style>
+<!-- <style>
 .ql-toolbar,
 .ql-container{
     background-color: white;
 }
+</style> -->
+<style>
+	a{ text-decoration: none;
+  color: unset; }
 </style>
+
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 {% if blog  %}
@@ -45,32 +50,34 @@
                 {% endif %}
 			</div>
 
-			
+			{% if related_articles %}
       <div class="blogdetails_related_articles-section-topic">RELATED ARTICLES</div>
 			<div class="row blogdetails_related_articles justify-content-between">
+        {% for article in related_articles %}
 				<div class="col-11 col-sm-5">
+					{% if article.lead_img %}
 					<div class="blogdetails-related-articles-article-img">
-						<img src="{% static 'ufos-5577222_1920.jpg' %}" alt="">
+						<a href="{% url 'blogdetail' article.slug %}"><img src="{{article.lead_img.url}}" alt=""></a>
 					</div>
-					<div class="video-topic article-font-style">Lorem Ipsum text as a topic of a video test</div>
-					<div class="blogdetails-related-articles-post-tags"><span>tags</span><span>tags</span></div>
+					{% endif %}
+					<br>
+					<div class="video-topic article-font-style">
+						<a href="{% url 'blogdetail' article.slug %}">{{article.title}}</a></div>
+					<br><!--REMOVE THIS br ONCE THE TAGS ARE FIXED -->
+					<!-- THIS IS COMMENTED UNTIL TAGES ARE FIXED -->
+					 <!-- <div class="blogdetails-related-articles-post-tags"><span>tags</span><span>tags</span></div>  -->
 				</div>
+				{% endfor %}
 
-				<div class="col-11 col-sm-5">
-					<div class="blogdetails-related-articles-article-img">
-						<img src="{% static 'ufos-5577222_1920.jpg' %}" alt="">
-					</div>
-					<div class="video-topic article-font-style">Lorem Ipsum text as a topic of a video test</div>
-					<div class="blogdetails-related-articles-post-tags"><span>tags</span><span>tags</span></div>
-				</div>
 			</div>
+			{% endif %}
 
 
 		</section>
 
 		<section class="col-lg-3">
 			<div class="bloglist-page-subscribe-form">
-				<form>
+				<form onsubmit="return false;">
 					<div>News Letter</div>
 					<input type="email" name="email" placeholder="email...">
 					<input type="submit" name="subscribe" value="subscribe">
@@ -78,8 +85,6 @@
 			</div>
 		</section>
 	</div>
-	
-
 </div>
 
 <!-- comment section start -->
@@ -95,16 +100,17 @@
 					</div>
 
 					<div class="top-line"></div>
-				  <form class="comment-form">
+				  <form class="comment-form" onsubmit="myform(event, this)">
+				  	    {% csrf_token %}
 				  	    <label for="name">Name</label><br>
 				  	    <input id="name" type="text" name="Name"><br><br>
 
 				  	    <label for="comment">Comment</label><br>
 				  	    <textarea id="comment" name="comment"></textarea><br><br>
 
-				  	    <input type="hidden" name="blog-id" value="{{blog.id}}"><br>
+				  	    <input type="hidden" id="blog-id" name="blog-id" value="{{blog.id}}"><br>
 
-				  	    <button type="submit" name="comment" >Post Comment</button>
+				  	    <button id="comment-submit-button" type="submit" name="comment" >Post Comment</button>
 				  </form>
 				</div>
 
@@ -117,50 +123,37 @@
 
 <section class="comment-display-section-container cotainer"><!-- comment display section -->
 		  <div class="row">
-				<div class="col-lg-9">
+				<div class="col-lg-9" id="all-article-comments">
 					<div class="top-line"></div>
 					<!-- <div>sort by <span>latest</span><span>old</span></div> -->
+					{% for comment in blog.comments_set.all %}
 					<div class="comment-box"> <!--Comment -->
-							ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+							{{comment.comment}}
 							<div class="comment-owner-meta-details row justify-content-between">
 									<div class="col" >
-										  <span >by: Wiz</span>
+										  <span >by: <b> {{comment.name}}</b></span>
 										  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-										  <span >22 june 2020</span>
+										  <span >{{comment.date_created}}</span>
 									</div>
 
 									<div class="col" style="text-align: right;">
 										<!-- <span>reply</span> -->
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-											<span><i class="far fa-thumbs-up"></i>&nbsp; 100</span>
+											<span  style="cursor: pointer;" onclick="(like_dislike_comment('like', {{comment.id}}));">
+												<i class="far fa-thumbs-up"></i>&nbsp;
+											</span>
+											<span id="comment-{{comment.id}}-like">{{comment.likes}}</span>
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-											<span><i class="far fa-thumbs-down"></i>&nbsp; 400</span>
+											<span  style="cursor: pointer;" onclick="(like_dislike_comment('dislike', {{comment.id}}));">
+												<i class="far fa-thumbs-down"></i>&nbsp;
+											</span>
+											<span id="comment-{{comment.id}}-dislike">{{comment.dislikes}}</span>
 									</div>	
 							</div>
 							
 					</div>
+					{% endfor %}
 
-					<div class="comment-box"> <!--Comment -->
-							ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-							<span>Wiz</span><span>22 june 2020</span>
-					</div>
-
-					<div class="comment-box"> <!--Comment -->
-							ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-							<span>Wiz</span><span>22 june 2020</span>
-					</div>
 				</div>
 
 				<div class="col-lg-3">
@@ -193,6 +186,106 @@ var quill = new Quill('#editor', {
   theme: 'snow'
 });
 quill.enable(false); 
+
+function myform(event){
+	event.preventDefault();
+
+	
+}
+
+
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+const btn = document.getElementById('comment-submit-button');
+
+
+
+
+function loadDoc( data ) {
+	 const XHR = new XMLHttpRequest();
+	 let urlEncodedData = "", urlEncodedDataPairs = [], name;
+
+ // Turn the data object into an array of URL-encoded key/value pairs.
+   for( name in data ) {
+	    urlEncodedDataPairs.push( encodeURIComponent( name ) + '=' + encodeURIComponent( data[name] ) );
+	  }
+	   // Combine the pairs into a single string and replace all %-encoded spaces to
+  // the '+' character; matches the behavior of browser form submissions.
+	   urlEncodedData = urlEncodedDataPairs.join( '&' ).replace( /%20/g, '+' );
+// Define what happens on successful data submission
+	   XHR.addEventListener( 'load', function(event) {
+      // alert( 'Yeah! Data sent and response loaded.' );
+      
+      const obj = JSON.parse(this.responseText);
+      console.log(obj);
+
+      let el = "";
+          el += obj['comment'];
+          el += '<div class="comment-owner-meta-details row justify-content-between">';
+          el += '<div class="col" >';
+          el += ' <span >by: <b>' + obj['name'] + '</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+          el += '<span >' + obj['date_created'] + '</span>';
+          el += '</div>';
+          el += '<div class="col" style="text-align: right;">';
+          el += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+          el += '<span  style="cursor: pointer;" onclick="(like_dislike_comment("like", {{comment.id}}));">';
+          el += '<i class="far fa-thumbs-up"></i>&nbsp;</span>'
+          el += '<span id="comment-{{comment.id}}-like">{{comment.likes}}0</span>';
+          el += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+          el += '<span style="cursor: pointer;" onclick="(like_dislike_comment("dislike", {{comment.id}}));">';
+          el += '<i class="far fa-thumbs-down"></i>&nbsp;</span>';
+          el += '<span id="comment-{{comment.id}}-dislike">{{comment.dislikes}}0</span>';
+          el += '</div>';
+          el += '</div>';	
+
+      let parentElement = document.getElementById("all-article-comments");
+      let comment_box =  document.createElement("div");
+          comment_box.className = "comment-box";
+          comment_box.innerHTML = el;
+          parentElement.insertBefore(comment_box, parentElement.children[1]);
+
+
+      
+     } );
+// Define what happens in case of error
+	   XHR.addEventListener( 'error', function(event) {
+      alert( 'Oops! Something went wrong.' );
+      } );
+	   XHR.open( 'POST', "{% url 'save_comment' %}" );
+	     // Add the required HTTP header for form data POST requests
+	XHR.setRequestHeader('X-CSRFToken', csrftoken);
+  XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+
+  // Finally, send our data.
+  XHR.send( urlEncodedData );
+
+}
+
+
+btn.addEventListener( 'click', function() {
+		const comment_owner_name = document.getElementById('name').value;
+    const comment = document.getElementById('comment').value;
+    const blog_id = document.getElementById('blog-id').value;
+    const comment_details_array = {name:comment_owner_name, actual_comment:comment, blog_id:blog_id}
+    // console.log(comment_details_array);
+    loadDoc( comment_details_array  );
+} )
+// -------------------------------------------------------------------------------------------------------
+
+function like_dislike_comment(val, comment_id) {
+	 const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    let objrespnse = JSON.parse(this.responseText);
+    let parentel = document.getElementById("comment-"+objrespnse['comment_id']+'-'+objrespnse['val']);
+    parentel.innerHTML = objrespnse['total_like_dislike'];
+    console.log(this.responseText);
+    }
+
+  var url = "/like_dislike_comment/"+val+"/" + comment_id +"/";
+  console.log(url);
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader('X-CSRFToken', csrftoken);
+  xhttp.send();
+}
 </script>
 {% include './template-parts/footer.html' %}	
 

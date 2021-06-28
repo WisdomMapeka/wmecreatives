@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
-from . models import Blog, Tags, HomePage,YoutubeVideos, TodaysCode, Categories
+from django.core import serializers
+from django.http import HttpResponse, JsonResponse
+from . models import Blog, Tags, HomePage,YoutubeVideos, TodaysCode, Categories, Comments
 import datetime
 
 
@@ -26,7 +28,10 @@ def bloglist(request):
 
 def blogdetail(request, slug):
     blog = Blog.objects.get(slug=slug)
-    return render(request, 'blog/blogdetail.html', {"blog":blog})
+    # The following query will have to be fixed to query based on related tags
+    related_articles =  Blog.objects.all().exclude(slug=slug)[:2]
+
+    return render(request, 'blog/blogdetail.html', {"blog":blog, "related_articles":related_articles})
 
 def admin_panel(request):
     return render(request, 'blog/admin_panel/admin_home.html')
@@ -50,3 +55,50 @@ def post_blog(request):
         # print(request.FILES)
 
     return render(request, 'blog/admin_panel/post_blog.html')
+
+
+
+
+def save_comment(request):
+    if request.method == 'POST':
+        name = request.POST.get('name', None)
+        comment = request.POST.get('actual_comment', None)
+        blog_id = request.POST.get('blog_id', None)
+        print(blog_id)
+        
+        blog = Blog.objects.get(id=blog_id)
+        save_comment = Comments.objects.create(name=name, comment=comment, blog=blog)
+        save_comment.save()
+
+        mydict = {"name":name, "comment":comment, "blog_id":blog_id, "date_created":save_comment.date_created}
+    print(save_comment.date_created)
+    return JsonResponse(mydict)
+
+def like_dislike_comment(request, val, comment_id):
+    total = ''
+    if val == 'like':
+        comment = Comments.objects.get(id=comment_id)
+        comment.likes +=1
+        comment.save()
+        total = comment.likes
+    elif val == 'dislike':
+        comment = Comments.objects.get(id=comment_id)
+        comment.dislikes +=1
+        comment.save()
+        total = comment.dislikes
+        print(val)
+        print(comment)
+    else:
+        pass
+    
+    comment_like_dislike_details = {"total_like_dislike":total, "val":val, "comment_id":comment_id }
+    print(total, val)
+    return JsonResponse(comment_like_dislike_details)
+
+
+def sendmessage(request):
+    return render(request, 'blog/sendmessage.html')
+
+
+def contacts(request):
+    return render(request, 'blog/contacts.html')

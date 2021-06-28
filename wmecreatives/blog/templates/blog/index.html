@@ -1,6 +1,9 @@
 {% load static %}
 {% include './template-parts/navbar.html' %}
-
+<style>
+	a{ text-decoration: none;
+  color: unset; }
+</style>
 {% if home_record.background_img %}
 <div style="background-image: url({{home_record.background_img.url}}) " class="hero-section">
 {% else %}
@@ -46,16 +49,21 @@
 			<div class="bns-articles-main-container container-fluid">
 				<div class="bns-articles-sub-container row justify-content-around"> 
 				        {% for blog in blogs %}                     
-					<div class="col-12  col-lg-5"><!-- actual article inner container-------------- -->
+					<div class="col-12  col-lg-5"><!-- actual article inner container-------------- --> <a href="{% url 'blogdetail' blog.slug %}">
 						<div class="bns-article-img">
 							{% if blog.lead_img %}
 							<img src="{{blog.lead_img.url}}">
 							{% else %}
 							{% endif %}
 						</div>
+						</a>
+
 						<div>
-							<div>published: {{blog.date_created}}&nbsp;&nbsp;&nbsp;<span style="color:green;cursor: pointer;" class="article-font-style">Python</span></div><br>
-							<div class="article-font-style">{{blog.title}}</div>
+							<div>published: {{blog.date_created}}&nbsp;&nbsp;&nbsp;
+								<!-- COMMENTED UNTIL TAGS ARE FIXED	
+									<span style="color:green;cursor: pointer;" class="article-font-style">Python</span> -->
+							</div><br>
+							<div class="article-font-style"><a href="{% url 'blogdetail' blog.slug %}">{{blog.title}}</a></div>
 						</div>
 					</div> 
 					{% endfor %}                     
@@ -77,12 +85,12 @@
 		<div class="select-by-category-topic">Select Topic By Category</div>
 
 		<div class="categories-sub-container row justify-content-between">
-                        {% for cat in categories %}
+            {% for cat in categories %}
 			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
 				<div><i class="{{cat.icon_class}}"></i></div>
 				<div>{{cat.name}}</div>
 			</div>
-                        {% endfor %}
+            {% endfor %}
 
 		</div>
 		
@@ -102,11 +110,12 @@
 					<iframe  src="{{vid.link}}"></iframe>
 				</div>
 				<div class="video-topic article-font-style">{{vid.title}}</div>
-				<div class="post-tags">
+<!-- 			COMMENTED UNTIL TAGS ARE FIXED	
+                <div class="post-tags">
 					{% for tag in vid.tags.all %}
 					<span>{{tag.name}}</span>
 					{% endfor %}
-				</div>
+				</div> -->
 			</div>
 			{% endfor %}
 
@@ -116,7 +125,7 @@
 
     
     <!-- SUBSCRIBE FORM -->
-	<section class="subscribe-form-main-container">
+	<!-- <section class="subscribe-form-main-container">
         
 
 
@@ -124,14 +133,9 @@
         	<div class="subscribe-form-text">
                 <span>Subscribe to my news letter</span>
                 <span>I post articles from time to time, Be the first to get these articles.</span>	
-                <span>I wont share Your Email With someone else. I promise</span>
             </div>
             <br>
         	<form class="subscribe-form">
-      <!--   	    <label for="name">Name</label>
-        	    <input id="name" type="text" name="name">
-                 <br> -->
-        	    <!-- <label for="email">Email</label> -->
         	    <input id="email" type="email" name="email">
         	    <br>
         	    <br>
@@ -141,7 +145,7 @@
 		
 
 	</section>
-
+ -->
 
 
 
