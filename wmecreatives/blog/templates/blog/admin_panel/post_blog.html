@@ -7,7 +7,7 @@
 	<section class="container-fluid">
 		<div class="row">
 			{% include './admin-template-parts/admin-sidebar.html' %}<!-- col 1 with col-3 class -->
-		    <div class="col-9"><!-- col 2 with col-9 class -->
+		    <div class="col-10"><!-- col 2 with col-9 class -->
 		    	<div class="row post-blog-form">
                      <form action="{% url 'post_blog' %}" method="POST"  enctype="multipart/form-data" id="blogform">
                         {% csrf_token %}
@@ -112,10 +112,18 @@
      // var data = quill.root.innerHTML;
      // print(data);
      textarea.innerHTML = data;
-     console.log(data);
+     // console.log(data);
      // quill2.setContents(data);
    }
     
+
+   function changeSideBarBackground(){
+        let side_bar_menu = document.getElementById('side-bar-post-blog');
+        console.log(side_bar_menu);
+        side_bar_menu.style.backgroundColor = "#43AEC4";
+        side_bar_menu.style.color = "white";
+   } 
+   changeSideBarBackground();  
 </script>
 
 <!-- ===================================== -->

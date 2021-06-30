@@ -33,30 +33,6 @@ def blogdetail(request, slug):
 
     return render(request, 'blog/blogdetail.html', {"blog":blog, "related_articles":related_articles})
 
-def admin_panel(request):
-    return render(request, 'blog/admin_panel/admin_home.html')
-
-def post_blog(request):
-    if request.method == 'POST':
-        title = request.POST.get('blog-title', None)
-        slug = request.POST.get('blog-slug', None)
-        lead_img = request.FILES.get('lead-img', None)
-        blog_content = request.POST.get('blog-content', None)
-        blog_summary = request.POST.get('blog-summary', None)
-        author = request.POST.get('author', None)
-
-        blog = Blog.objects.create(title=title, slug=slug, lead_img=lead_img, content=blog_content,
-                                   summary=blog_summary, author=author)
-        blog.save()
-
-
-
-        # print(blog_content)
-        # print(request.FILES)
-
-    return render(request, 'blog/admin_panel/post_blog.html')
-
-
 
 
 def save_comment(request):
@@ -102,3 +78,50 @@ def sendmessage(request):
 
 def contacts(request):
     return render(request, 'blog/contacts.html')
+
+
+# ADMIN PANEL VIEWS
+def admin_panel(request):
+    return render(request, 'blog/admin_panel/admin_home.html')
+
+def post_blog(request):
+    if request.method == 'POST':
+        title = request.POST.get('blog-title', None)
+        slug = request.POST.get('blog-slug', None)
+        lead_img = request.FILES.get('lead-img', None)
+        blog_content = request.POST.get('blog-content', None)
+        blog_summary = request.POST.get('blog-summary', None)
+        author = request.POST.get('author', None)
+
+        blog = Blog.objects.create(title=title, slug=slug, lead_img=lead_img, content=blog_content,
+                                   summary=blog_summary, author=author)
+        blog.save()
+    return render(request, 'blog/admin_panel/post_blog.html')
+
+
+def youtube_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/youtube_admin_sidebar.html')
+
+def dailycode_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/dailycode_admin_sidebar.html')
+
+def allblogs_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/allblogs_admin_sidebar.html')
+
+def siteanalysis_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/siteanalysis_admin_sidebar.html')
+
+def comments_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/comments_admin_sidebar.html')
+
+def messages_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/messages_admin_sidebar.html')
+
+def subscriptions_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/subscriptions_admin_sidebar.html')
+
+def users_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/users_admin_sidebar.html')
+
+def settings_admin_sidebar(request):
+    return render(request, 'blog/admin_panel/settings_admin_sidebar.html')
