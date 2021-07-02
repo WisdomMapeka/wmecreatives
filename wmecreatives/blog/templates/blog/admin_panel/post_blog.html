@@ -14,6 +14,15 @@
                      	  <label for="title">Blog Title</label><br>
                      	  <input type="text" name="blog-title" id="title">
                      	  <br><br>
+                          {% if categories %}
+                          <label for="category">Category</label><br>
+                          <select id="category" name="category">
+                              {% for cate in categories %}
+                              <option>{{cate.name}}</option>
+                              {% endfor %}
+                          </select>
+                          <br><br>
+                          {% endif %}
 
                      	  <label for="slug">Slug</label><br>
                      	  <input type="text" name="blog-slug" id="slug">
@@ -32,6 +41,7 @@
                      	  <label for="summar">Blog Summary</label><br>
                      	  <textarea id="summar" name="blog-summary"></textarea>
                      	  <br><br>
+
 
                      	  <label for="author">Author</label><br>
                      	  <input type="text" name="author" id="author">

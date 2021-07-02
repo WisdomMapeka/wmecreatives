@@ -85,6 +85,7 @@ def admin_panel(request):
     return render(request, 'blog/admin_panel/admin_home.html')
 
 def post_blog(request):
+    categories = Categories.objects.all()
     if request.method == 'POST':
         title = request.POST.get('blog-title', None)
         slug = request.POST.get('blog-slug', None)
@@ -96,7 +97,7 @@ def post_blog(request):
         blog = Blog.objects.create(title=title, slug=slug, lead_img=lead_img, content=blog_content,
                                    summary=blog_summary, author=author)
         blog.save()
-    return render(request, 'blog/admin_panel/post_blog.html')
+    return render(request, 'blog/admin_panel/post_blog.html', {'categories':categories})
 
 
 def youtube_admin_sidebar(request):

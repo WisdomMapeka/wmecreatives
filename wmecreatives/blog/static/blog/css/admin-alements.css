@@ -1,0 +1,21 @@
+
+.youtube-sidebar-admin-row-one {
+	background-color: rgb(242, 242, 242);
+}
+.youtube-sidebar-admin-row-one > div{
+    background-color: white;
+    /*border: solid 1px;*/
+    /*box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;*/
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+.youtube-sidebar-admin-row-one > div:nth-child(4){
+	margin-right: 20px;
+	background-color: #43aec4;
+	color: white;
+	cursor: pointer;
+}

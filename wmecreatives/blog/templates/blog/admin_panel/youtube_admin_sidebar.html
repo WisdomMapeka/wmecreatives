@@ -1,9 +1,63 @@
+{% load static %}
 {% include './admin-template-parts/admin-header.html' %}
+
 	<section class="container-fluid">
 		<div class="row">
 			{% include './admin-template-parts/admin-sidebar.html' %}<!-- col 1 with col-3 class -->
 		    <div class="col-10"><!-- col 2 with col-9 class -->
                <!-- content goes here -->
+               <div class="row youtube-sidebar-admin-row-one"><!-- row one start -->
+		    		<div class="col">
+		    			youtube subscribers
+		    			<br>
+		    			<b>100</b>
+		    		</div>
+			    	<div class="col">
+			    		total videos on site
+			    		<br>
+			    		<b>100</b>
+			    	</div>
+			    	<div class="col">
+			    		total vides on youtube
+			    		<br>
+			    		<b>100</b>
+			    	</div>
+			    	<div class="col">
+			    		add video
+			    		<br>
+			    		<i class="fas fa-plus"></i>
+			    	</div>
+		    	</div><!-- row one end -->
+
+		    	<div class="row"><!-- row two start -->
+		    		<div class="col">
+		    			<canvas id="myChart" width="400" height="400"></canvas>
+		    		</div>
+		    	</div><!-- row two end -->
+
+		    	<div class="row"><!-- row three start -->
+		    		<div class="col">
+		    			<table id="example" class="display" cellspacing="0" width="100%">
+				        <thead>
+				            <tr>
+				                <th>First name</th>
+				                <th>Last name</th>
+				                <th>Phone #</th>
+				                <th>Location</th>
+				            </tr>
+				        </thead>
+				        <tfoot>
+				            <tr>
+				                <th>First name</th>
+				                <th>Last name</th>
+				                <th>Phone #</th>
+				                <th>Location</th>
+				            </tr>
+				        </tfoot>
+				    </table>
+		    		</div>
+		    	</div><!-- row three end -->
+
 		    </div>
 		</div>
 	</section>
@@ -18,5 +72,10 @@
 	   } 
 	   changeSideBarBackground(); 
 	</script>
+
+		<script type="text/javascript" src="{% static 'blog/js/charts/youtube-sidebaar-area-charts.js' %}"></script>
+
+
+
 </body>
 </html>

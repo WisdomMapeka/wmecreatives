@@ -63,6 +63,7 @@ class Blog(models.Model):
     youtube_video_link = models.TextField(null=True, blank=True)
     num_views = models.CharField(max_length=30, null=True, blank=True)
     read_time = models.CharField(max_length=30, null=True, blank=True)
+    category = models.CharField(max_length=100, null=True, blank=True)
     
 
 
