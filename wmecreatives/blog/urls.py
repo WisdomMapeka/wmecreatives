@@ -17,6 +17,7 @@ urlpatterns = [
     path('subscriptions_admin_sidebar/', views.subscriptions_admin_sidebar, name='subscriptions_admin_sidebar'),
     path('users_admin_sidebar/', views.users_admin_sidebar, name='users_admin_sidebar'),
     path('settings_admin_sidebar/', views.settings_admin_sidebar, name='settings_admin_sidebar'),
+    path('edit_post/<int:id>/', views.edit_post, name='edit_post'),
     # comments
     path('save_comment/', views.save_comment, name='save_comment'),
     path('like_dislike_comment/<str:val>/<int:comment_id>/', views.like_dislike_comment, name='like_dislike_comment'),

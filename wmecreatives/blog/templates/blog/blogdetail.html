@@ -1,11 +1,10 @@
 {% load static %}
 {% include './template-parts/navbar.html' %}
-<!-- <style>
-.ql-toolbar,
+<style>
 .ql-container{
-    background-color: white;
+    font-size: 1rem !important;
 }
-</style> -->
+</style>
 <style>
 	a{ text-decoration: none;
   color: unset; }
@@ -26,8 +25,9 @@
 	<div class="post-meta-data"> 
 	    <div><i class="fas fa-user"></i>&nbsp;&nbsp;by: {{blog.author}}</div>
 	    <div><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{blog.date_created}}</div>
-	    <div><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;200</div>
-	    <div><i class="far fa-eye"></i>&nbsp;&nbsp;{{blog.num_views}}</div>	
+	    <!-- TO BE UNCOMMENTED WHEN THE VIEWS DN NUM OF COMMNETS IS FIXED -->
+	    <!-- <div><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;200</div>
+	    <div><i class="far fa-eye"></i>&nbsp;&nbsp;{{blog.num_views}}</div>	 -->
 	</div>
 	
 </div>
@@ -92,11 +92,12 @@
 	    <div class="row">
 				<div class="col-lg-9">
 					<div>Leave a Comment Below&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<span><i class="far fa-handshake"></i>&nbsp;&nbsp;100</span>
+						<!-- TO BE UNCOMMENTED WHEN THE VIEWS DN NUM OF COMMNETS IS FIXED -->
+<!-- 						<span><i class="far fa-handshake"></i>&nbsp;&nbsp;100</span>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 						<span><i class="far fa-eye"></i>&nbsp;&nbsp;{{blog.num_views}}</span>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-						<span><i class="far fa-comment-alt"></i>&nbsp;&nbsp;200</span>
+						<span><i class="far fa-comment-alt"></i>&nbsp;&nbsp;200</span> -->
 					</div>
 
 					<div class="top-line"></div>

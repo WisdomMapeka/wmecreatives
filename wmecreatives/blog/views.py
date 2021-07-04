@@ -99,6 +99,30 @@ def post_blog(request):
         blog.save()
     return render(request, 'blog/admin_panel/post_blog.html', {'categories':categories})
 
+def edit_post(request, id):
+    blog = Blog.objects.get(id=id)
+    categories = Categories.objects.all()
+
+    if request.method == 'POST':
+        title = request.POST.get('blog-title', None)
+        slug = request.POST.get('blog-slug', None)
+        lead_img = request.FILES.get('lead-img', None)
+        blog_content = request.POST.get('blog-content', None)
+        blog_summary = request.POST.get('blog-summary', None)
+        author = request.POST.get('author', None)
+
+        blog = Blog.objects.get(id=id)
+        
+        blog.title=title
+        blog.slug=slug
+        blog.lead_img=lead_img
+        blog.content=blog_content
+        blog.ummary=blog_summary
+        blog.author=author
+
+        blog.save()
+    return render(request, 'blog/admin_panel/edit_post.html', {'blog':blog,'categories':categories})
+
 
 def youtube_admin_sidebar(request):
     return render(request, 'blog/admin_panel/youtube_admin_sidebar.html')
@@ -107,7 +131,8 @@ def dailycode_admin_sidebar(request):
     return render(request, 'blog/admin_panel/dailycode_admin_sidebar.html')
 
 def allblogs_admin_sidebar(request):
-    return render(request, 'blog/admin_panel/allblogs_admin_sidebar.html')
+    blogs = Blog.objects.all()
+    return render(request, 'blog/admin_panel/allblogs_admin_sidebar.html', {'blogs':blogs})
 
 def siteanalysis_admin_sidebar(request):
     return render(request, 'blog/admin_panel/siteanalysis_admin_sidebar.html')

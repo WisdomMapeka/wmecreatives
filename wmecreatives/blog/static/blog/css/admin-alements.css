@@ -19,3 +19,32 @@
 	color: white;
 	cursor: pointer;
 }
+
+/*all blogs*/
+.all-blogs-admin-sidebar-container{
+    background-color: rgb(242, 242, 242);
+}
+
+.all-blogs-admin-sidebar {
+    background-color: white;
+    margin-bottom: 30px;
+    margin-top: 30px !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+.all-blogs-admin-sidebar >div:nth-child(1){
+    font-size: 30px;
+    color: #43AEC4;
+    margin-bottom: 20px;
+}
+.all-blogs-admin-sidebar >div:nth-child(2){
+    margin-bottom: 20px;
+}
+.all-blogs-admin-sidebar >div:nth-child(2) span{
+ display: inline-block;
+ margin-right: 40px;
+ padding-left: 50px;
+ padding-right: 50px;
+ border: solid 1px #43AEC4;
+ cursor: pointer;
+}
