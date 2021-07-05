@@ -1,7 +1,10 @@
 from django.db import models
 from django.db import models
+from django.contrib.staticfiles.storage import staticfiles_storage
 
+styles_shits = staticfiles_storage.listdir('blog/highlight/styles')
 
+choices = [(s,s) for s in styles_shits[1]]
 # Create your models here.
 
 class HomePage(models.Model):
@@ -64,6 +67,7 @@ class Blog(models.Model):
     num_views = models.CharField(max_length=30, null=True, blank=True)
     read_time = models.CharField(max_length=30, null=True, blank=True)
     category = models.CharField(max_length=100, null=True, blank=True)
+    styleshit = models.CharField(max_length=100, null=True, blank=True, choices=choices, default="monokai-sublime.min.css")
     
 
 

@@ -3,6 +3,7 @@ from django.core import serializers
 from django.http import HttpResponse, JsonResponse
 from . models import Blog, Tags, HomePage,YoutubeVideos, TodaysCode, Categories, Comments
 import datetime
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 
 
@@ -27,11 +28,22 @@ def bloglist(request):
     return render(request, 'blog/bloglist.html', {'blogs':blogs})
 
 def blogdetail(request, slug):
+
     blog = Blog.objects.get(slug=slug)
+    url_path_styles = "blog/highlight/styles/{}".format(blog.styleshit)
+    styleshit_url  = staticfiles_storage.url(url_path_styles)
+    # styleshit_url = "{"
+    # styleshit_url+= "%"
+    # styleshit_url+=" static "
+    # styleshit_url+="'blog/highlight/styles/{}' ".format(blog.styleshit)
+    # styleshit_url+= "%}"
+    print(styleshit_url)
     # The following query will have to be fixed to query based on related tags
     related_articles =  Blog.objects.all().exclude(slug=slug)[:2]
 
-    return render(request, 'blog/blogdetail.html', {"blog":blog, "related_articles":related_articles})
+    return render(request, 'blog/blogdetail.html', {"blog":blog, 
+                                                    "related_articles":related_articles, 
+                                                    "styleshit_url":styleshit_url})
 
 
 
