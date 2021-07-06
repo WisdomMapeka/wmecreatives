@@ -3,6 +3,7 @@
 
 
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.bubble.css"> -->
 <style>
 .ql-container{
     font-size: 1rem !important;
@@ -19,7 +20,7 @@ color: unset; }
 
 {% if blog  %}
 <div class="blogdetails-topic">
-	<h1 style="color: #8c8c8c;">{{blog.title}}</h1>
+	<h1 style="color: #e2dcdc;">{{blog.title}}</h1>
 <!-- 	{% if blog.author_image %}
 	<div  class="auther-pic">
 		<img src="{{blog.author_image.url}}" alt="">
@@ -190,7 +191,7 @@ var quill = new Quill('#editor', {
     syntax: true,         
     "toolbar": false,  
   },
-  theme: 'snow'
+  theme: 'snow' 
 });
 quill.enable(false); 
 

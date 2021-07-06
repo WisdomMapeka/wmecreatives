@@ -67,7 +67,7 @@ class Blog(models.Model):
     num_views = models.CharField(max_length=30, null=True, blank=True)
     read_time = models.CharField(max_length=30, null=True, blank=True)
     category = models.CharField(max_length=100, null=True, blank=True)
-    styleshit = models.CharField(max_length=100, null=True, blank=True, choices=choices, default="monokai-sublime.min.css")
+    styleshit = models.CharField(max_length=100, null=True, blank=True, choices=choices, default="shades-of-purple.min.css")
     
 
 
@@ -97,3 +97,20 @@ class YoutubeVideos(models.Model):
 
     def __str__(self):
         return self.link
+
+
+class Messages(models.Model):
+    name = models.CharField(max_length=300, null=True, blank=True)
+    email = models.CharField(max_length=300, null=True, blank=True)
+    phone = models.CharField(max_length=300, null=True, blank=True)
+    message = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        if self.name and self.email and self.phone:
+            return "Name: {}   email: {}   phone: {}".format(self.name, self.email, self.phone)
+        elif self.name and self.email:
+            return "Name: {}   email: {}".format(self.name, self.email)
+        elif self.name:
+            return self.name
+        else:
+            return "NO NAME"

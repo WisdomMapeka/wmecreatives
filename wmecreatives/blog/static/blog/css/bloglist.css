@@ -26,6 +26,10 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
+.bloglist-content-section div:nth-child(2){
+  font-size: 17px;
+  color: #6d6d6d;
+}
 .post-date-author-update-bloglist{
   padding-top: 10px;
   /*padding-bottom: 10px;*/
@@ -187,4 +191,71 @@
 .comment-owner-meta-details div:nth-child(1){
   /*font-style: italic;*/
   color: rgb(55, 55, 55) !important;
+}
+
+/*------------------------CONTACTS PAGE------------------------*/
+.contacts-page-theme{
+  text-align: center;
+  background-color: #15adc4;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.contacts-page-container{
+  margin-top: 100px !important;
+  margin-bottom: 100px !important;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  width: 400px;
+  margin: auto;
+  border: solid 1px;
+  text-align: center;
+  border-top: solid 6px #15adc4;
+}
+.contacts-page-container span{
+  display: inline-block;
+}
+.contacts-page-sendmessage-button{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: solid 1px #15adc4;
+  padding-right: 50px;
+  padding-left: 50px;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.contacts-page-sendmessage-button:hover{
+  background-color: #15adc4;
+  color: white;
+}
+
+/*----------------------------SEND MESSAGE---------------------*/
+.sendmessage-page-container form{
+  width: 60%;
+  margin: auto;
+}
+
+.sendmessage-page-container form input,
+.sendmessage-page-container form textarea{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.sendmessage-page-container form textarea{
+  height: 300px;
+}
+.sendmessage-page-container form button{
+  border: 1px solid #15adc4;
+/*  padding-right: 40px;
+  padding-left: 40px;*/
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.sendmessage-page-container form button:hover{
+  background-color: #15adc4;
+  color: white;
 }

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 from django.http import HttpResponse, JsonResponse
-from . models import Blog, Tags, HomePage,YoutubeVideos, TodaysCode, Categories, Comments
+from . models import Blog, Tags, HomePage,YoutubeVideos, TodaysCode, Categories, Comments, Messages
 import datetime
 from django.contrib.staticfiles.storage import staticfiles_storage
 
@@ -32,11 +32,6 @@ def blogdetail(request, slug):
     blog = Blog.objects.get(slug=slug)
     url_path_styles = "blog/highlight/styles/{}".format(blog.styleshit)
     styleshit_url  = staticfiles_storage.url(url_path_styles)
-    # styleshit_url = "{"
-    # styleshit_url+= "%"
-    # styleshit_url+=" static "
-    # styleshit_url+="'blog/highlight/styles/{}' ".format(blog.styleshit)
-    # styleshit_url+= "%}"
     print(styleshit_url)
     # The following query will have to be fixed to query based on related tags
     related_articles =  Blog.objects.all().exclude(slug=slug)[:2]
@@ -85,6 +80,15 @@ def like_dislike_comment(request, val, comment_id):
 
 
 def sendmessage(request):
+    if request.method == "POST":
+        name = request.POST.get("name", None)
+        email = request.POST.get("email", None)
+        phone = request.POST.get("phone", None)
+        message = request.POST.get("message", None)
+        
+        user_message = Messages.objects.create(name=name, email=email, phone=phone, message=message)
+        user_message.save()
+
     return render(request, 'blog/sendmessage.html')
 
 
