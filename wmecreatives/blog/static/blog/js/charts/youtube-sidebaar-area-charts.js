@@ -3,18 +3,19 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Tokyo", "Mumbai", "Mexico City",  "Shanghai", "Sao Paulo",  "New York", "Karachi","Buenos Aires", "Delhi","Moscow"],
-        datasets: [{
-            label: 'Jan - March', // Name the series
-            data: [500, 50, 2424, 14040,  14141,  4111, 4544, 47, 5555, 6811], // Specify the data values array
-            fill: true,
-            borderColor: '#2196f3', // Add custom color border (Line)
-            backgroundColor: '#43AEC4', // Add custom color background (Points and Fill)
-            borderWidth: 1 // Specify bar border width
-        },
+        labels: ["Jan", "Feb", "March",  "April", "May",  "June"],
+        datasets: [
+        // {
+        //     label: 'Jan - March', 
+        //     data: [500, 50, 2424, 14040,  14141,  4111, 4544, 47, 5555, 6811], 
+        //     fill: true,
+        //     borderColor: '#2196f3', 
+        //     backgroundColor: '#43AEC4', 
+        //     borderWidth: 1 
+        // },
                   {
-            label: 'March - June', // Name the series
-            data: [1288,  88942,  44545,  7588, 99, 242,  1417, 5504, 75, 457], // Specify the data values array
+            label: 'Total video clicks changes for the past 6 months', // Name the series
+            data: [1288,  88942,  44545,  7588, 99, 242], // Specify the data values array
             fill: true,
             borderColor: '#4CAF50', // Add custom color border (Line)
             backgroundColor: '#4CAF50', // Add custom color background (Points and Fill)

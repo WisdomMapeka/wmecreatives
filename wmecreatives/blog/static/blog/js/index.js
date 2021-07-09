@@ -29,18 +29,6 @@ function removeDropdownHidingClass(){
 }
 
 
-function hide_follow_icons_scroll(){
-  var follow_icons_container = document.getElementById('article-details-follow-midea-cons-id');
-  console.log(follow_icons_container.offsetTop);
-  console.log(window.pageYOffset);
-
-    if (window.pageYOffset>=300 && window.pageYOffset<=900) {
-      console.log('less or equal 300')
-      follow_icons_container.classList.add("article-details-follow-midea-cons-non-fixed")
-      } else {
-      follow_icons_container.classList.remove("article-details-follow-midea-cons-non-fixed");
-      }
-}
 
 
 

@@ -25,6 +25,7 @@ class TodaysCode(models.Model):
     code = models.TextField(null=True, blank=True)
     author = models.CharField(max_length=200, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    styleshit = models.CharField(max_length=100, null=True, blank=True, choices=choices, default="shades-of-purple.min.css")
 
     def __str__(self):
         return self.title
@@ -60,7 +61,7 @@ class Blog(models.Model):
     lead_img = models.ImageField(upload_to='media_files/blog', null=True, blank=True)
     date_created = models.DateField(auto_now_add=True, null=True, blank=True)
     content = models.TextField(null=True, blank=True)
-    summary = models.TextField(null=True, blank=True)
+    summary = models.TextField(null=True, blank=True, help_text="31 letters max will give a better out look")
     author = models.CharField(max_length=200, null=True, blank=True)
     author_image = models.ImageField(upload_to='media_files/authorImg', null=True, blank=True)
     youtube_video_link = models.TextField(null=True, blank=True)

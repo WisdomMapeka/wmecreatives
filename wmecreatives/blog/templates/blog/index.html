@@ -4,10 +4,11 @@
 	a{ text-decoration: none;
   color: unset; }
 </style>
+<link rel="stylesheet" type="text/css" href="{{styleshit_url}}">
 {% if home_record.background_img %}
 <div style="background-image: url({{home_record.background_img.url}}) " class="hero-section">
 {% else %}
-<div style="background-color: black;" class="hero-section">
+<div class="hero-section">
 {% endif %}
 			<!-- col-1 -->
 			{% if home_record %}
@@ -28,7 +29,7 @@
 				<div>
 					<div class="breaking-news-theme">{{todayscode.title}}</div>
 					<div class="breaking-news-topic-topic">
-						{{todayscode.code}}
+						{{todayscode.code|safe}}
 					</div>
 					<div class="breaking-news-time-author-container">
 						<span>{{todayscode.date_created}} by</span><span style="color: blue;"> {{todayscode.author}} </span>
@@ -151,3 +152,6 @@
 
 
 {% include './template-parts/footer.html' %}
+
+<script src="{% static 'blog/highlight/highlight.min.js' %}"></script>
+<script>hljs.highlightAll();</script>

@@ -4,6 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from . models import Blog, Tags, HomePage,YoutubeVideos, TodaysCode, Categories, Comments, Messages
 import datetime
 from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic import ListView
 
 
 
@@ -12,6 +13,8 @@ def index(request):
     today = datetime.date.today()
     home_record = HomePage.objects.all().first()
     todayscode = TodaysCode.objects.filter(date_created__gt = today).first()
+    url_path_styles = "blog/highlight/styles/{}".format(todayscode.styleshit)
+    styleshit_url  = staticfiles_storage.url(url_path_styles)
     # change blogs later to query only the latest 4
     blogs = Blog.objects.all()[:4]
     categories = Categories.objects.all()
@@ -21,7 +24,8 @@ def index(request):
                                                'todayscode':todayscode,
                                                'blogs':blogs,
                                                'categories':categories,
-                                               'youtube_vids':youtube_vids})
+                                               'youtube_vids':youtube_vids,
+                                               'styleshit_url':styleshit_url})
 
 def bloglist(request):
     blogs = Blog.objects.all()
@@ -146,9 +150,14 @@ def youtube_admin_sidebar(request):
 def dailycode_admin_sidebar(request):
     return render(request, 'blog/admin_panel/dailycode_admin_sidebar.html')
 
-def allblogs_admin_sidebar(request):
-    blogs = Blog.objects.all()
-    return render(request, 'blog/admin_panel/allblogs_admin_sidebar.html', {'blogs':blogs})
+# def allblogs_admin_sidebar(request):
+#     blogs = Blog.objects.all()
+#     return render(request, 'blog/admin_panel/allblogs_admin_sidebar.html', {'blogs':blogs})
+
+class BlogListView(ListView):
+    paginate_by = 5
+    model = Blog
+    template_name = 'blog/admin_panel/allblogs_admin_sidebar.html'
 
 def siteanalysis_admin_sidebar(request):
     return render(request, 'blog/admin_panel/siteanalysis_admin_sidebar.html')

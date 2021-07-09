@@ -2,10 +2,10 @@
 	<section class="container-fluid">
 		<div class="row">
 			{% include './admin-template-parts/admin-sidebar.html' %}<!-- col 1 with col-3 class -->
-		    <div class="col-10"><!-- col 2 with col-9 class -->
+		    <div class="col-10 second-admin-column-features"><!-- col 2 with col-9 class -->
                <!-- content goes here -->
-               <div class="row all-blogs-admin-sidebar-container justify-content-center">
-               	   {% for blog in blogs %}
+               <div class="row  all-blogs-admin-sidebar-container justify-content-center">
+               	   {% for blog in object_list %}
 	               	<div class="col-11 all-blogs-admin-sidebar">
 	               		<div>{{blog.title}}</div>
 	               		<div>
@@ -15,7 +15,39 @@
 	               		</div>
 	               	</div>
 	               	{% endfor %}
-               	  
+               	   
+
+
+                    <div class="col-7 pagination">
+					        {% if page_obj.has_previous %}
+					        <span class="step-links">
+					            <a href="?page=1">&laquo; first</a>
+					        </span>
+
+					        <span class="step-links">
+					            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+					        </span>
+					        {% endif %}
+
+					        <span class="current">
+					            page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+					        </span>
+
+					        {% if page_obj.has_next %}
+					        <span class="step-links">
+					            <a href="?page={{ page_obj.next_page_number }}">next</a>
+					        </span>
+
+					        <span class="step-links">
+					            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+					        </span>
+					        {% endif %}
+					    </span>
+					</div>
+
+
+
+
                </div>
 		    </div>
 		</div>

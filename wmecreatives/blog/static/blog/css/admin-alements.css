@@ -1,11 +1,16 @@
-
-.youtube-sidebar-admin-row-one {
-	background-color: rgb(242, 242, 242);
+/*styles affecting many elements*/
+.second-admin-column-features{
+    height: 1200px;
+    /*background-color: rgb(242, 242, 242);*/
 }
+/*-----------------------------------------------------------------------------------------------*/
+/*.youtube-sidebar-admin-row-one {
+	background-color: rgb(242, 242, 242);
+}*/
 .youtube-sidebar-admin-row-one > div{
     background-color: white;
     /*border: solid 1px;*/
-    /*box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;*/
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -22,11 +27,12 @@
 
 /*all blogs*/
 .all-blogs-admin-sidebar-container{
-    background-color: rgb(242, 242, 242);
+    /*background-color: rgb(242, 242, 242);*/
 }
 
 .all-blogs-admin-sidebar {
     background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     margin-bottom: 30px;
     margin-top: 30px !important;
     padding-left: 30px !important;
@@ -53,4 +59,19 @@
 .all-blogs-admin-sidebar >div:nth-child(2) span:hover{
     background-color: #43AEC4;
     color: white;
+}
+
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+
+.pagination span{
+    background-color: #43AEC4;
+    color: white;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

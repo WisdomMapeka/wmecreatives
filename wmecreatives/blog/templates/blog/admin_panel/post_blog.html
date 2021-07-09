@@ -7,7 +7,7 @@
 	<section class="container-fluid">
 		<div class="row">
 			{% include './admin-template-parts/admin-sidebar.html' %}<!-- col 1 with col-3 class -->
-		    <div class="col-10"><!-- col 2 with col-9 class -->
+		    <div class="col-10 second-admin-column-features"><!-- col 2 with col-9 class -->
 		    	<div class="row post-blog-form">
                      <form action="{% url 'post_blog' %}" method="POST"  enctype="multipart/form-data" id="blogform">
                         {% csrf_token %}
