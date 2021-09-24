@@ -13,7 +13,12 @@ def index(request):
     today = datetime.date.today()
     home_record = HomePage.objects.all().first()
     todayscode = TodaysCode.objects.filter(date_created__gt = today).first()
-    url_path_styles = "blog/highlight/styles/{}".format(todayscode.styleshit)
+    print(todayscode)
+    if todayscode == "None":
+        url_path_styles = "blog/highlight/styles/{}".format(todayscode.styleshit)
+    else:
+        url_path_styles = "blog/highlight/styles/shades-of-purple.min.css"
+    
     styleshit_url  = staticfiles_storage.url(url_path_styles)
     # change blogs later to query only the latest 4
     blogs = Blog.objects.all()[:4]

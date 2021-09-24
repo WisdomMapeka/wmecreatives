@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'wmecreatives.wsgi.application'
 # }
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
