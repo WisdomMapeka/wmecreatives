@@ -83,18 +83,28 @@ WSGI_APPLICATION = 'wmecreatives.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
-DATABASES = {
-    'default': {
-        'ENGINE': 'mysql.connector.django',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mysql.connector.django',
         # 'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wmecreativesdb',
-        'USER': 'root',
-        'PASSWORD': '1234567wiz',
-        'HOST': 'localhost',
+        # 'NAME': 'wmecreativesdb',
+        # 'USER': 'root',
+        # 'PASSWORD': '1234567wiz',
+        # 'HOST': 'localhost',
         # 'PORT':'3306',
-    }
-}
+#     }
+# }
 
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'wmedb',
+            'USER': 'wiz',
+            'PASSWORD': '1234567wiz',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

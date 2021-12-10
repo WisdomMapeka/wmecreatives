@@ -1,157 +1,67 @@
 {% load static %}
 {% include './template-parts/navbar.html' %}
+
 <style>
 	a{ text-decoration: none;
   color: unset; }
 </style>
-<link rel="stylesheet" type="text/css" href="{{styleshit_url}}">
-{% if home_record.background_img %}
-<div style="background-image: url({{home_record.background_img.url}}) " class="hero-section">
-{% else %}
-<div class="hero-section">
-{% endif %}
-			<!-- col-1 -->
-			{% if home_record %}
-			<div class="hot-topic-container">
-				
-				<div>
-					<span class="hot-topic-circle"></span>&nbsp;&nbsp;
-					<span class="hot-topic-theme">{{home_record.site_theme}}</span>
-				</div>
-				<div class="hot-topic-topic">{{home_record.theme_description}}</div>
-				<div class="hot-topic-theme-handshake-icon"><span><i class="fas fa-handshake"></i></span></div>
-			</div>
-			{% endif %}
-			<!-- col-2 -->
 
-			{% if todayscode %}
-			<div class="breaking-news-container">
-				<div>
-					<div class="breaking-news-theme">{{todayscode.title}}</div>
-					<div class="breaking-news-topic-topic">
-						{{todayscode.code|safe}}
-					</div>
-					<div class="breaking-news-time-author-container">
-						<span>{{todayscode.date_created}} by</span><span style="color: blue;"> {{todayscode.author}} </span>
-					</div>
-				</div>
-			</div>
-			{% endif %}
-		</div>
-
-
-
-                {% if blogs %}
-                
-		<div class="breaking-news-second-main-container">
-			<div class="bns-main-theme">RECENT</div>
-                        
-                        
-			<div class="bns-articles-main-container container-fluid">
-				<div class="bns-articles-sub-container row justify-content-around"> 
-				        {% for blog in blogs %}                     
-					<div class="col-12  col-lg-5"><!-- actual article inner container-------------- --> <a href="{% url 'blogdetail' blog.slug %}">
-						<div class="bns-article-img">
-							{% if blog.lead_img %}
-							<img src="{{blog.lead_img.url}}">
-							{% else %}
-							{% endif %}
+<div class="cotainer">
+	<div class="bloglist-main-container row">
+		{% if blogs %}
+		<section class="col-lg-9">
+			{% for blog in blogs %}
+			<div class="post-main-container">
+				<div class="row">
+					
+						{% if blog.lead_img %}
+						<div class="bloglist-page-article-img col-md-4">
+							<a href="{% url 'blogdetail' blog.slug %}">
+							    <img  src="{{blog.lead_img.url}}">
+							</a>
 						</div>
-						</a>
+						{% else %}
+						{% endif %}
+					
 
-						<div>
-							<div>published: {{blog.date_created}}&nbsp;&nbsp;&nbsp;
-								<!-- COMMENTED UNTIL TAGS ARE FIXED	
-									<span style="color:green;cursor: pointer;" class="article-font-style">Python</span> -->
-							</div><br>
-							<div class="article-font-style"><a href="{% url 'blogdetail' blog.slug %}">{{blog.title}}</a></div>
+
+					<div class="col-md-8 bloglist-content-section">
+						<div><a href="{% url 'blogdetail' blog.slug %}">{{blog.title}}</a></div>
+						<div><a href="{% url 'blogdetail' blog.slug %}">{{blog.summary}}</a></div>
+						<div class="post-tags">
+							{% for tag in blog.tags.all %}
+							<span>{{tag.name}}</span>
+							{% endfor %}
 						</div>
-					</div> 
-					{% endfor %}                     
-
-
+					</div>
+				</div>
+               <!-- THIS FOLLOWING COMMENTED CODE IS NOT TO BE DELETED  -->
+ 				<div class="post-date-author-update-bloglist">
+						<span><a href="{% url 'blogdetail' blog.slug %}"><i class="fas fa-user"></i>&nbsp;&nbsp;by {{blog.author}}</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}"><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;{{blog.date_created}}</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}"><i class="fas fa-pen-alt"></i>&nbsp;&nbsp;updated: 3333</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}"><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;88</a></span>
+						<span><a href="{% url 'blogdetail' blog.slug %}"><i class="far fa-eye"></i>&nbsp;&nbsp;{{blog.num_views}}</a></span>
 				</div>
 			</div>
-			
-			
-		</div>
+			{% endfor %}			
+			<!-- ------------------------------------------ -->
+		</section>
 		{% endif %}
-	</header>
 
-    
-    <!-- categories section -->
-    {% if categories %}
-	<section class="categories-section-main-container container-fluid">
-
-		<div class="select-by-category-topic">Select Topic By Category</div>
-
-		<div class="categories-sub-container row justify-content-between">
-            {% for cat in categories %}
-			<div class="category-icon-container col-5 col-sm-3 col-lg-2">
-				<div><i class="{{cat.icon_class}}"></i></div>
-				<div>{{cat.name}}</div>
+		<section class="col-lg-3">
+			<div class="bloglist-page-subscribe-form">
+				<form>
+					<div>News Letter</div>
+					<input type="email" name="email" placeholder="email...">
+					<input type="submit" name="subscribe" value="subscribe">
+				</form>
 			</div>
-            {% endfor %}
-
-		</div>
-		
-	</section>
-	{% endif %}
-
-
-    <!-- VEDEO SECTION -->
-    {% if youtube_vids %}
-	<section class="video-section-main-container container-fluid">
-		<div class="video-section-topic">YOUTUBE VIDEOS</div>
-
-		<div class="video-section-sub-container row justify-content-between">
-			{% for vid in youtube_vids %}
-			<div class="video-item col-12 col-sm-6 col-lg-3">
-				<div>
-					<iframe  src="{{vid.link}}"></iframe>
-				</div>
-				<div class="video-topic article-font-style">{{vid.title}}</div>
-<!-- 			COMMENTED UNTIL TAGS ARE FIXED	
-                <div class="post-tags">
-					{% for tag in vid.tags.all %}
-					<span>{{tag.name}}</span>
-					{% endfor %}
-				</div> -->
-			</div>
-			{% endfor %}
-
-		</div>
-	</section>
-	{% endif %}
-
-    
-    <!-- SUBSCRIBE FORM -->
-	<!-- <section class="subscribe-form-main-container">
-        
-
-
-        <div>
-        	<div class="subscribe-form-text">
-                <span>Subscribe to my news letter</span>
-                <span>I post articles from time to time, Be the first to get these articles.</span>	
-            </div>
-            <br>
-        	<form class="subscribe-form">
-        	    <input id="email" type="email" name="email">
-        	    <br>
-        	    <br>
-        	    <input type="submit" name="subscribe" value="subscribe">
-		    </form>
-        </div>
-		
-
-	</section>
- -->
-
-
+		</section>
+	</div>
+	
+	
+</div>
 
 
 {% include './template-parts/footer.html' %}
-
-<script src="{% static 'blog/highlight/highlight.min.js' %}"></script>
-<script>hljs.highlightAll();</script>

@@ -10,27 +10,8 @@ from django.views.generic import ListView
 
 # Create your views here.
 def index(request):
-    today = datetime.date.today()
-    home_record = HomePage.objects.all().first()
-    todayscode = TodaysCode.objects.filter(date_created__gt = today).first()
-    print(todayscode)
-    if todayscode == "None":
-        url_path_styles = "blog/highlight/styles/{}".format(todayscode.styleshit)
-    else:
-        url_path_styles = "blog/highlight/styles/shades-of-purple.min.css"
-    
-    styleshit_url  = staticfiles_storage.url(url_path_styles)
-    # change blogs later to query only the latest 4
-    blogs = Blog.objects.all()[:4]
-    categories = Categories.objects.all()
-    # change youtube_vids later to query only the latest 4
-    youtube_vids = YoutubeVideos.objects.all()[:4]
-    return render(request, 'blog/index.html', {'home_record':home_record,
-                                               'todayscode':todayscode,
-                                               'blogs':blogs,
-                                               'categories':categories,
-                                               'youtube_vids':youtube_vids,
-                                               'styleshit_url':styleshit_url})
+    blogs = Blog.objects.all()
+    return render(request, 'blog/index.html', {'blogs':blogs})
 
 def bloglist(request):
     blogs = Blog.objects.all()
