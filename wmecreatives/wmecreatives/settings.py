@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'blog_api.apps.BlogApiConfig',
 
     # 'haystack',
     
@@ -150,3 +152,8 @@ MEDIA_URL = '/media_files/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_files')
 # LOGIN_REDIRECT_URL = '/my_dashboard/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
