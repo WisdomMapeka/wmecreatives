@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}NexCore Technologies — Digital Transformation Partners{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'website/css/styles.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="{% url 'website:home' %}#home" class="nav-logo">
+        <span class="logo-mark">N</span>
+        <span class="logo-text">NexCore</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'website:home' %}#home" class="nav-link">Home</a></li>
+        <li><a href="{% url 'website:home' %}#services" class="nav-link">Services</a></li>
+        <li><a href="{% url 'website:home' %}#about" class="nav-link">About</a></li>
+        <li><a href="{% url 'website:home' %}#contact" class="nav-link">Contact</a></li>
+        <li><a href="{% url 'website:home' %}#contact" class="nav-cta">Get Started</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="{% url 'website:home' %}" class="nav-logo">
+            <span class="logo-mark">N</span>
+            <span class="logo-text">NexCore</span>
+          </a>
+          <p>{% if settings %}{{ settings.footer_tagline }}{% else %}Engineering digital futures for ambitious businesses worldwide.{% endif %}</p>
+          <div class="footer-social">
+            {% if settings %}
+            <a href="{{ settings.linkedin_url }}" aria-label="LinkedIn">in</a>
+            <a href="{{ settings.twitter_url }}" aria-label="Twitter">𝕏</a>
+            <a href="{{ settings.github_url }}" aria-label="GitHub">gh</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            {% for service in services %}
+            <li><a href="{% url 'website:service_detail' service.slug %}">{{ service.title }}</a></li>
+            {% empty %}
+            <li><a href="{% url 'website:home' %}#services">Our Services</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="{% url 'website:home' %}#about">About Us</a></li>
+            <li><a href="{% url 'website:home' %}#contact">Careers</a></li>
+            <li><a href="{% url 'website:home' %}#contact">Case Studies</a></li>
+            <li><a href="{% url 'website:home' %}#contact">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            {% if settings %}
+            <li><a href="mailto:{{ settings.email_primary }}">{{ settings.email_primary }}</a></li>
+            <li><a href="tel:{{ settings.phone }}">{{ settings.phone }}</a></li>
+            {% endif %}
+            <li><a href="{% url 'website:home' %}#contact">Get In Touch</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© {% now "Y" %} NexCore Technologies. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  {% load static %}
+  <script src="{% static 'website/js/script.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

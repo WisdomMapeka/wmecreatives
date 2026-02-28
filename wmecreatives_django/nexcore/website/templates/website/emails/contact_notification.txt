@@ -1,0 +1,15 @@
+New Contact Form Submission — NexCore Technologies
+==================================================
+
+Name:       {{ msg.full_name }}
+Email:      {{ msg.email }}
+Service:    {{ msg.service|default:"Not specified" }}
+Submitted:  {{ msg.submitted_at|date:"N j, Y, g:i a" }}
+
+Message:
+---------
+{{ msg.message }}
+
+--
+Manage this message in the admin:
+http://localhost:8000/admin/website/contactmessage/{{ msg.pk }}/change/

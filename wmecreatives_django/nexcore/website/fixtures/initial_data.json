@@ -1,0 +1,299 @@
+[
+  {
+    "model": "website.sitesettings",
+    "pk": 1,
+    "fields": {
+      "company_name": "NexCore Technologies",
+      "company_tagline": "Engineering Digital Futures",
+      "logo_letter": "N",
+      "address_line1": "Innovation Hub, 4th Floor",
+      "address_line2": "123 Tech Boulevard, Suite 400",
+      "address_city": "San Francisco, CA 94105",
+      "email_main": "hello@nexcore.tech",
+      "email_support": "support@nexcore.tech",
+      "phone": "+1 (415) 555-0192",
+      "phone_hours": "Mon – Fri, 9am – 6pm PST",
+      "linkedin_url": "#",
+      "twitter_url": "#",
+      "github_url": "#",
+      "footer_tagline": "Engineering digital futures for ambitious businesses worldwide.",
+      "copyright_text": "© 2025 NexCore Technologies. All rights reserved."
+    }
+  },
+  {
+    "model": "website.herosection",
+    "pk": 1,
+    "fields": {
+      "badge_text": "Technology & Business Solutions",
+      "headline_line1": "We Engineer",
+      "headline_accent": "Digital Futures",
+      "subheadline": "From custom web platforms to enterprise ERP systems — NexCore delivers end-to-end technology solutions that transform how businesses operate, grow, and compete.",
+      "cta_primary_text": "Explore Services",
+      "cta_primary_url": "#services",
+      "cta_ghost_text": "Talk to Us",
+      "cta_ghost_url": "#contact",
+      "card_metric_value": "↑ 34.2%",
+      "card_metric_label": "Growth this quarter",
+      "is_active": true
+    }
+  },
+  {
+    "model": "website.herostat",
+    "pk": 1,
+    "fields": { "hero": 1, "value": "200+", "label": "Projects Delivered", "order": 1 }
+  },
+  {
+    "model": "website.herostat",
+    "pk": 2,
+    "fields": { "hero": 1, "value": "98%", "label": "Client Retention", "order": 2 }
+  },
+  {
+    "model": "website.herostat",
+    "pk": 3,
+    "fields": { "hero": 1, "value": "12+", "label": "Years Experience", "order": 3 }
+  },
+  {
+    "model": "website.service",
+    "pk": 1,
+    "fields": {
+      "title": "Web Development",
+      "icon_key": "web",
+      "description": "Custom, high-performance websites and web applications built with modern frameworks. Pixel-perfect design meets robust engineering.",
+      "is_featured": false,
+      "order": 1,
+      "is_active": true,
+      "learn_more_url": "#contact"
+    }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 1,
+    "fields": { "service": 1, "label": "React", "order": 1 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 2,
+    "fields": { "service": 1, "label": "Next.js", "order": 2 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 3,
+    "fields": { "service": 1, "label": "Node.js", "order": 3 }
+  },
+  {
+    "model": "website.service",
+    "pk": 2,
+    "fields": {
+      "title": "CRM Software Solutions",
+      "icon_key": "crm",
+      "description": "Centralize your customer relationships with tailored CRM platforms that automate sales pipelines, track leads, and boost conversion rates.",
+      "is_featured": false,
+      "order": 2,
+      "is_active": true,
+      "learn_more_url": "#contact"
+    }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 4,
+    "fields": { "service": 2, "label": "Sales Automation", "order": 1 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 5,
+    "fields": { "service": 2, "label": "Lead Tracking", "order": 2 }
+  },
+  {
+    "model": "website.service",
+    "pk": 3,
+    "fields": {
+      "title": "ERP Systems",
+      "icon_key": "erp",
+      "description": "Unify your business operations — finance, HR, inventory, and supply chain — in one integrated platform that scales with your organization.",
+      "is_featured": false,
+      "order": 3,
+      "is_active": true,
+      "learn_more_url": "#contact"
+    }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 6,
+    "fields": { "service": 3, "label": "Finance", "order": 1 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 7,
+    "fields": { "service": 3, "label": "HR", "order": 2 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 8,
+    "fields": { "service": 3, "label": "Inventory", "order": 3 }
+  },
+  {
+    "model": "website.service",
+    "pk": 4,
+    "fields": {
+      "title": "Odoo Implementation",
+      "icon_key": "odoo",
+      "description": "Expert Odoo configuration, customization, and deployment. We map your business processes to Odoo modules for a seamless digital transformation.",
+      "is_featured": false,
+      "order": 4,
+      "is_active": true,
+      "learn_more_url": "#contact"
+    }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 9,
+    "fields": { "service": 4, "label": "Odoo 17", "order": 1 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 10,
+    "fields": { "service": 4, "label": "Custom Modules", "order": 2 }
+  },
+  {
+    "model": "website.service",
+    "pk": 5,
+    "fields": {
+      "title": "ERPNext Implementation",
+      "icon_key": "erpnext",
+      "description": "Open-source ERP power with enterprise reliability. We implement and customize ERPNext to fit your industry-specific workflows precisely.",
+      "is_featured": false,
+      "order": 5,
+      "is_active": true,
+      "learn_more_url": "#contact"
+    }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 11,
+    "fields": { "service": 5, "label": "Frappe", "order": 1 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 12,
+    "fields": { "service": 5, "label": "Open Source", "order": 2 }
+  },
+  {
+    "model": "website.service",
+    "pk": 6,
+    "fields": {
+      "title": "WhatsApp Chatbot Development",
+      "icon_key": "whatsapp",
+      "description": "Intelligent, conversational chatbots on WhatsApp Business API. Automate customer support, lead qualification, and order management 24/7.",
+      "is_featured": true,
+      "order": 6,
+      "is_active": true,
+      "learn_more_url": "#contact"
+    }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 13,
+    "fields": { "service": 6, "label": "WhatsApp API", "order": 1 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 14,
+    "fields": { "service": 6, "label": "AI-Powered", "order": 2 }
+  },
+  {
+    "model": "website.servicetag",
+    "pk": 15,
+    "fields": { "service": 6, "label": "24/7", "order": 3 }
+  },
+  {
+    "model": "website.aboutsection",
+    "pk": 1,
+    "fields": {
+      "section_label": "Who We Are",
+      "headline_line1": "Built on Expertise,",
+      "headline_line2": "Driven by Results",
+      "lead_paragraph": "NexCore Technologies is a full-service digital transformation partner for businesses ready to scale. Since 2012, we've helped companies across industries modernize their operations through smart technology choices.",
+      "cta_text": "Work With Us",
+      "cta_url": "#contact",
+      "badge1_emoji": "🏆",
+      "badge1_title": "Award Winning",
+      "badge1_subtitle": "Technology Partner",
+      "badge2_emoji": "🌍",
+      "badge2_title": "Global Reach",
+      "badge2_subtitle": "30+ Countries Served",
+      "is_active": true
+    }
+  },
+  {
+    "model": "website.valueproposition",
+    "pk": 1,
+    "fields": {
+      "about": 1,
+      "title": "Strategic Thinking",
+      "description": "We don't just implement software — we understand your business model and design solutions that create real competitive advantage.",
+      "order": 1
+    }
+  },
+  {
+    "model": "website.valueproposition",
+    "pk": 2,
+    "fields": {
+      "about": 1,
+      "title": "End-to-End Delivery",
+      "description": "From discovery and architecture to deployment and ongoing support — we're with you at every stage of your digital journey.",
+      "order": 2
+    }
+  },
+  {
+    "model": "website.valueproposition",
+    "pk": 3,
+    "fields": {
+      "about": 1,
+      "title": "Open-Source Expertise",
+      "description": "Deep specialization in Odoo and ERPNext means you get enterprise-grade solutions without the enterprise-grade licensing costs.",
+      "order": 3
+    }
+  },
+  {
+    "model": "website.testimonial",
+    "pk": 1,
+    "fields": {
+      "client_name": "Sarah Mitchell",
+      "client_role": "CEO",
+      "client_company": "Retail Chain Co.",
+      "quote": "NexCore transformed our entire inventory management with ERPNext. We went from spreadsheets to a fully automated system in just 8 weeks.",
+      "avatar_initial": "SM",
+      "rating": 5,
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "website.testimonial",
+    "pk": 2,
+    "fields": {
+      "client_name": "James Okafor",
+      "client_role": "CTO",
+      "client_company": "FinTech Startup",
+      "quote": "The WhatsApp chatbot NexCore built handles 80% of our customer queries automatically. Our support team can now focus on what really matters.",
+      "avatar_initial": "JO",
+      "rating": 5,
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "website.testimonial",
+    "pk": 3,
+    "fields": {
+      "client_name": "Priya Nair",
+      "client_role": "Operations Director",
+      "client_company": "Manufacturing Ltd.",
+      "quote": "Our Odoo implementation was flawless. NexCore understood our complex manufacturing workflows and delivered exactly what we needed.",
+      "avatar_initial": "PN",
+      "rating": 5,
+      "is_active": true,
+      "order": 3
+    }
+  }
+]

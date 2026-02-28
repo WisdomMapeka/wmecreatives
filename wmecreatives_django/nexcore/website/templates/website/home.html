@@ -1,0 +1,250 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}NexCore Technologies — Digital Transformation Partners{% endblock %}
+
+{% block content %}
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        {{ settings.hero_badge_text }}
+      </div>
+      <h1 class="hero-headline reveal">
+        {{ settings.hero_headline_line1 }}<br />
+        <span class="headline-accent">{{ settings.hero_headline_accent }}</span>
+      </h1>
+      <p class="hero-sub reveal">{{ settings.hero_subheadline }}</p>
+      <div class="hero-actions reveal">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#contact" class="btn btn-ghost">Talk to Us →</a>
+      </div>
+      <div class="hero-stats reveal">
+        {% for stat in stats %}
+        <div class="stat">
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+        </div>
+        {% if not forloop.last %}<div class="stat-divider"></div>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-card card-main">
+        <div class="card-header">
+          <div class="card-dots"><span></span><span></span><span></span></div>
+          <span class="card-tag">Live Dashboard</span>
+        </div>
+        <div class="card-chart">
+          <div class="chart-bar" style="--h:60%"></div>
+          <div class="chart-bar" style="--h:80%"></div>
+          <div class="chart-bar" style="--h:45%"></div>
+          <div class="chart-bar" style="--h:90%"></div>
+          <div class="chart-bar" style="--h:70%"></div>
+          <div class="chart-bar" style="--h:55%"></div>
+          <div class="chart-bar active" style="--h:95%"></div>
+        </div>
+        <div class="card-metric">
+          <span class="metric-val">↑ 34.2%</span>
+          <span class="metric-label">Growth this quarter</span>
+        </div>
+      </div>
+      <div class="hero-card card-float card-float-1">
+        <span class="float-icon">⚡</span>
+        <span>WhatsApp Bot Active</span>
+      </div>
+      <div class="hero-card card-float card-float-2">
+        <span class="float-icon">✓</span>
+        <span>ERP Deployed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      {% for service in services %}
+      <span>{{ service.title }}</span><span class="dot">◆</span>
+      {% endfor %}
+      {# Duplicate for seamless loop #}
+      {% for service in services %}
+      <span>{{ service.title }}</span><span class="dot">◆</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-label reveal">What We Build</div>
+      <div class="section-header">
+        <h2 class="section-title reveal">Our Core Services</h2>
+        <p class="section-desc reveal">
+          We specialize in {{ services|length }} high-impact technology domains — each designed to
+          solve real business challenges and deliver measurable results.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        {% for service in services %}
+        <div class="service-card reveal {% if service.is_featured %}service-card-featured{% endif %}" data-index="{{ forloop.counter0 }}">
+          <div class="service-icon">
+            {% include "website/partials/service_icon.html" with icon_key=service.icon_key %}
+          </div>
+          <span class="service-num">{{ service.number_display }}</span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.short_description }}</p>
+          <div class="service-tags">
+            {% for tag in service.tags_list %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <a href="{% url 'website:service_detail' service.slug %}" class="service-link">Learn More →</a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about" id="about">
+    <div class="container about-container">
+      <div class="about-visual reveal">
+        <div class="about-img-wrap">
+          <div class="about-gfx">
+            <div class="gfx-ring gfx-ring-1"></div>
+            <div class="gfx-ring gfx-ring-2"></div>
+            <div class="gfx-ring gfx-ring-3"></div>
+            <div class="gfx-core"><span>NC</span></div>
+          </div>
+          <div class="about-float-card fc-1">
+            <span>🏆</span>
+            <div><strong>Award Winning</strong><small>Technology Partner</small></div>
+          </div>
+          <div class="about-float-card fc-2">
+            <span>🌍</span>
+            <div><strong>Global Reach</strong><small>30+ Countries Served</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="section-label reveal">Who We Are</div>
+        <h2 class="section-title reveal">Built on Expertise,<br/>Driven by Results</h2>
+        <p class="about-lead reveal">{{ settings.about_lead }}</p>
+
+        <div class="about-values">
+          {% for value in values %}
+          <div class="value-item reveal">
+            <div class="value-icon">{{ value.icon }}</div>
+            <div>
+              <h4>{{ value.title }}</h4>
+              <p>{{ value.description }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <a href="#contact" class="btn btn-primary-white reveal">Work With Us →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-label reveal" style="text-align:center">Get In Touch</div>
+      <h2 class="section-title reveal" style="text-align:center">
+        Let's Build Something<br/>Remarkable Together
+      </h2>
+      <p class="section-desc reveal" style="text-align:center;max-width:520px;margin:0 auto 3rem">
+        Tell us about your project and we'll respond within 24 hours with a tailored proposal.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info reveal">
+          <div class="info-block">
+            <div class="info-icon">📍</div>
+            <div>
+              <h4>Our Office</h4>
+              <p>{{ settings.office_address|linebreaksbr }}</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-icon">📧</div>
+            <div>
+              <h4>Email Us</h4>
+              <p>
+                <a href="mailto:{{ settings.email_primary }}">{{ settings.email_primary }}</a><br/>
+                <a href="mailto:{{ settings.email_support }}">{{ settings.email_support }}</a>
+              </p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-icon">📱</div>
+            <div>
+              <h4>Call Us</h4>
+              <p>{{ settings.phone }}<br/>{{ settings.phone_hours }}</p>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="{{ settings.linkedin_url }}" class="social-btn" aria-label="LinkedIn">in</a>
+            <a href="{{ settings.twitter_url }}" class="social-btn" aria-label="Twitter">𝕏</a>
+            <a href="{{ settings.github_url }}" class="social-btn" aria-label="GitHub">gh</a>
+          </div>
+        </div>
+
+        <!-- Contact Form (AJAX) -->
+        <form class="contact-form reveal" id="contactForm" novalidate
+              data-url="{% url 'website:contact_submit' %}">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="id_first_name">First Name</label>
+              {{ form.first_name }}
+              <span class="field-error" id="err-first_name"></span>
+            </div>
+            <div class="form-group">
+              <label for="id_last_name">Last Name</label>
+              {{ form.last_name }}
+              <span class="field-error" id="err-last_name"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="id_email">Email Address</label>
+            {{ form.email }}
+            <span class="field-error" id="err-email"></span>
+          </div>
+          <div class="form-group">
+            <label for="id_service">Service Interested In</label>
+            {{ form.service }}
+            <span class="field-error" id="err-service"></span>
+          </div>
+          <div class="form-group">
+            <label for="id_message">Tell Us About Your Project</label>
+            {{ form.message }}
+            <span class="field-error" id="err-message"></span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          <p class="form-note">We respect your privacy and never share your information.</p>
+          <div class="form-success" id="formSuccess">
+            <span>✓</span> <span id="successMsg"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

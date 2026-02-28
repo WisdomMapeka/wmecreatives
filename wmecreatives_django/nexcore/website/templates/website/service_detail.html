@@ -1,0 +1,93 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}{{ service.title }} — NexCore Technologies{% endblock %}
+
+{% block content %}
+<main class="service-detail-page">
+
+  <!-- ── Hero banner ── -->
+  <section class="sd-hero">
+    <div class="sd-hero-grid"></div>
+    <div class="container">
+      <div class="sd-breadcrumb">
+        <a href="{% url 'website:home' %}">Home</a>
+        <span>/</span>
+        <a href="{% url 'website:home' %}#services">Services</a>
+        <span>/</span>
+        <span>{{ service.title }}</span>
+      </div>
+      <div class="sd-hero-inner">
+        <div class="sd-hero-content">
+          <div class="service-icon sd-icon">
+            {% include "website/partials/service_icon.html" with icon_key=service.icon_key %}
+          </div>
+          <div class="sd-badge">Service {{ service.number_display }}</div>
+          <h1 class="sd-title">{{ service.title }}</h1>
+          <p class="sd-lead">{{ service.short_description }}</p>
+          <div class="service-tags sd-tags">
+            {% for tag in service.tags_list %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+          <a href="{% url 'website:home' %}#contact" class="btn btn-primary">Start This Project →</a>
+        </div>
+        <div class="sd-hero-card">
+          <div class="sd-card-inner">
+            <div class="sd-card-icon">
+              {% include "website/partials/service_icon.html" with icon_key=service.icon_key %}
+            </div>
+            <h3>{{ service.title }}</h3>
+            <div class="sd-card-stats">
+              <div class="sd-card-stat"><strong>100+</strong><span>Deployments</span></div>
+              <div class="sd-card-stat"><strong>99%</strong><span>Satisfaction</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Full description ── -->
+  {% if service.full_description %}
+  <section class="sd-body">
+    <div class="container sd-body-container">
+      <div class="sd-body-text">
+        <h2>About This Service</h2>
+        <p>{{ service.full_description }}</p>
+      </div>
+      <div class="sd-body-side">
+        <div class="sd-side-card">
+          <h4>Ready to get started?</h4>
+          <p>Tell us about your project and we'll put together a custom proposal within 24 hours.</p>
+          <a href="{% url 'website:home' %}#contact" class="btn btn-primary btn-full">Contact Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ── Other services ── -->
+  {% if other_services %}
+  <section class="sd-other">
+    <div class="container">
+      <h2 class="sd-other-title">Explore More Services</h2>
+      <div class="sd-other-grid">
+        {% for s in other_services %}
+        <a href="{% url 'website:service_detail' s.slug %}" class="sd-other-card">
+          <div class="service-icon">
+            {% include "website/partials/service_icon.html" with icon_key=s.icon_key %}
+          </div>
+          <span class="service-num">{{ s.number_display }}</span>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.short_description|truncatechars:90 }}</p>
+          <span class="service-link">View Service →</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+</main>
+{% endblock %}
